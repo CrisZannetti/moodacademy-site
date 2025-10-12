@@ -21,3 +21,38 @@ document.getElementById("accessForm").addEventListener("submit", function(e) {
     error.textContent = "Password errata.";
   }
 });
+/* Contrasto campi e placeholder */
+input {
+  background: rgba(255,255,255,0.25);
+  color: #fff;                 /* testo bianco */
+  border: 1px solid rgba(255,255,255,0.55);
+  box-shadow: 0 6px 24px rgba(0,0,0,0.25);
+  font-weight: 600;
+}
+
+input::placeholder {
+  color: rgba(255,255,255,0.95); /* placeholder quasi bianco */
+  opacity: 1;                    /* Safari/iOS */
+}
+
+input:focus {
+  outline: none;
+  border-color: #fff;
+  background: rgba(255,255,255,0.35);
+}
+
+/* Scatola “vetro” un po’ più leggibile */
+.glass {
+  backdrop-filter: blur(14px);
+  background: rgba(30,30,35,0.22);
+  border: 1px solid rgba(255,255,255,0.12);
+}
+
+/* Overlay leggermente più scura per aumentare contrasto globale */
+.overlay {
+  background: linear-gradient(
+    120deg,
+    rgba(25,25,35,0.65),
+    rgba(70,80,95,0.65)
+  );
+}
