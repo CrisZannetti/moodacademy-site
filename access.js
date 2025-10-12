@@ -52,7 +52,7 @@ input:focus {
 .overlay {
   background: linear-gradient(
     120deg,
-    rgba(25,25,35,0.65),
+    rgba(35,35,35,0.75),
     rgba(70,80,95,0.65)
   );
 }
