@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="it">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Mood Academy TCG</title>
+  <meta name="description" content="Il gioco di carte collezionabili dove il Mood influenza la partita.">
+  <link rel="icon" href="/assets/favicon.png">
+  <style>
+    :root { --maxw: 1000px; }
+    *, *::before, *::after { box-sizing: border-box; }
+    body { margin:0; font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif; line-height:1.6; }
+    a { color: inherit; }
+    header { padding: clamp(2rem, 5vw, 4rem) 1rem; text-align:center; border-bottom: 1px solid #eee; }
+    nav { display:flex; gap:.75rem; flex-wrap:wrap; justify-content:center; margin-top: .5rem;}
+    nav a { text-decoration:none; padding:.5rem .75rem; border-radius:.5rem; border:1px solid #ddd; }
+    .cta { display:inline-block; padding:.9rem 1.1rem; border-radius:.6rem; border:2px solid #111; text-decoration:none; margin-top:1rem; }
+    main { max-width: var(--maxw); margin: 0 auto; padding: 1rem; }
+    section { padding: 2rem 0; border-bottom: 1px solid #f0f0f0;}
+    h1, h2 { line-height:1.2; margin:0 0 .5rem 0;}
+    .grid { display:grid; gap:1rem; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); }
+    .card { border:1px solid #eee; border-radius:.75rem; padding:1rem; }
+    img.resp { max-width:100%; height:auto; display:block; border-radius:.5rem; }
+    footer { text-align:center; padding:2rem 1rem; color:#666; font-size:.95rem; }
+    .note { font-size:.95rem; color:#555; }
+    .sr-only { position:absolute; width:1px; height:1px; padding:0; margin:-1px; overflow:hidden; clip:rect(0,0,0,0); border:0; }
+  </style>
+</head>
+<body>
+  <header>
+    <h1 aria-label="Mood Academy Trading Card Game">Mood Academy TCG</h1>
+    <p class="note">Strategia profonda, oltre 150 carte e l’influenza del Mood sul gioco.</p>
+    <nav aria-label="Sezioni del sito">
+      <a href="#regolamento">Regolamento</a>
+      <a href="#carte">Carte</a>
+      <a href="#news">News</a>
+      <a href="#download">Download</a>
+      <a href="#contatti">Contatti</a>
+    </nav>
+    <p><a class="cta" href="#news" aria-label="Vai alle novità e iscriviti agli aggiornamenti">Seguimi per il lancio</a></p>
+  </header>
+
+  <main>
+    <section id="regolamento">
+      <h2>Regolamento</h2>
+      <p>In breve: Task Point (TP), Mood, obbligo di avere almeno 1 <em>Studente</em> in campo, zona <em>Rimandi</em>, Union, ecc. Scarica il PDF completo sotto.</p>
+      <ul>
+        <li><strong>TP:</strong> i Task Point infliggono danno ai <em>Mental Health (MH)</em> avversari.</li>
+        <li><strong>Mood:</strong> ogni turno peschi una carta Mood e la assegni.</li>
+        <li><strong>Obbligo Studente:</strong> se non hai Studenti in campo, perdi.</li>
+        <li><strong>Rimandi:</strong> gli scarti vanno qui; niente zona “scarti” separata.</li>
+      </ul>
+    </section>
+
+    <section id="carte">
+      <h2>Carte (anteprima)</h2>
+      <div class="grid">
+        <figure class="card">
+          <img src="/assets/placeholder-card.png" alt="Carta di esempio 1" class="resp">
+          <figcaption>Anteprima Carta #1</figcaption>
+        </figure>
+        <figure class="card">
+          <img src="/assets/placeholder-card.png" alt="Carta di esempio 2" class="resp">
+          <figcaption>Anteprima Carta #2</figcaption>
+        </figure>
+        <figure class="card">
+          <img src="/assets/placeholder-card.png" alt="Carta di esempio 3" class="resp">
+          <figcaption>Anteprima Carta #3</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <section id="news">
+      <h2>News / Devlog</h2>
+      <ul>
+        <li>[2025-10-12] Sito online ✨</li>
+      </ul>
+    </section>
+
+    <section id="download">
+      <h2>Download</h2>
+      <p>Qui potrai scaricare: regolamento PDF, checklist set, proxy print, moduli torneo.</p>
+    </section>
+
+    <section id="contatti">
+      <h2>Contatti</h2>
+      <p>Vuoi aggiornamenti? Invia un’email o compila il modulo (si integra con servizi come Formspree senza backend).</p>
+      <p>Email: <a href="mailto:info@moodacademy.org">info@moodacademy.org</a></p>
+    </section>
+  </main>
+
+  <footer>
+    © 2025 Mood Academy TCG • Sito statico su GitHub Pages • Mobile‑first
+  </footer>
+</body>
+</html>
