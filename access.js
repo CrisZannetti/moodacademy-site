@@ -44,14 +44,20 @@ window.addEventListener("load", () => {
     localStorage.setItem("moodacademyUser", JSON.stringify(userData));
 
     errorBox.textContent = "";
-    banner.classList.add("fadeOut");
+    
+ // Fade out + rimozione banner
+banner.classList.add("fadeOut");
 
-    // Quando finisce l'animazione → mostra il sito
-    banner.addEventListener("animationend", () => {
-      banner.remove();
-      document.body.style.overflow = "auto";
-      document.body.style.opacity = "1";
-      console.log(`🎉 Benvenuto, ${name}! Accesso completato.`);
+// Forza la rimozione fisica dopo l'animazione
+setTimeout(() => {
+  if (banner && banner.parentNode) {
+    banner.parentNode.removeChild(banner);
+  }
+  document.body.style.overflow = "auto";
+  document.body.style.opacity = "1";
+  console.log(`🎉 Benvenuto, ${name}! Accesso completato.`);
+}, 2500);
+
     });
   });
 });
