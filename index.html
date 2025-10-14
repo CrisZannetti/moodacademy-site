@@ -7,7 +7,7 @@
   <meta name="description" content="Il gioco di carte collezionabili dove il Mood influenza la partita.">
   <link rel="icon" href="/assets/favicon.png">
   <link rel="stylesheet" href="style.css">
-  <script src="access.js"></script>
+  <script defer src="access.js"></script>
   <style>
     :root { --maxw: 1000px; }
     *, *::before, *::after { box-sizing: border-box; }
@@ -27,21 +27,19 @@
     .note { font-size:.95rem; color:#555; }
     .sr-only { position:absolute; width:1px; height:1px; padding:0; margin:-1px; overflow:hidden; clip:rect(0,0,0,0); border:0; }
   </style>
-  <link rel="stylesheet" href="style.css">
-  <script defer src="access.js"></script>
 </head>
 <body>
   <div id="access-banner">
     <div class="overlay"></div>
     <div class="access-box glass">
      <img src="assets/logo.png" alt="Mood Academy Logo" class="logo">
-      <form id="accessForm">
-        <input type="text" id="nameInput" name="Nome" placeholder="Il tuo nome" required>
-        <input type="email" id="emailInput" name="Email" placeholder="La tua email" required>
-        <input type="password" id="passwordInput" placeholder="Password" required>
-        <button type="submit" id="enterBtn">Benvenuto nella Mood Academy</button>
-        <p id="error" class="error"></p>
-      </form>
+     <form id="accessForm">
+      <input type="text" id="nameInput" name="name" placeholder="Il tuo nome" required>
+      <input type="email" id="emailInput" name="email" placeholder="La tua email" required>
+      <input type="password" id="passwordInput" name="password" placeholder="Password" required>
+      <button type="submit" id="enterBtn">Benvenuto nella Mood Academy</button>
+      <p id="error" class="error"></p>
+     </form>
     </div>
   </div>
   <header>
