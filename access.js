@@ -1,8 +1,6 @@
-// === ACCESSO MOOD ACADEMY ===
+// === ACCESSO MOOD ACADEMY (versione semplificata e compatibile GitHub Pages) ===
 
-window.addEventListener("load", () => {
-  console.log("✅ access.js caricato correttamente");
-
+window.addEventListener("DOMContentLoaded", () => {
   const banner = document.getElementById("access-banner");
   const form = document.getElementById("accessForm");
   const nameInput = document.getElementById("nameInput");
@@ -10,19 +8,13 @@ window.addEventListener("load", () => {
   const passwordInput = document.getElementById("passwordInput");
   const errorBox = document.getElementById("error");
 
-  console.log("Banner trovato:", !!banner);
-  console.log("Form trovato:", !!form);
-
-  // Se l'utente ha già effettuato l'accesso → salta banner
-  const storedUser = localStorage.getItem("moodacademyUser");
-  if (storedUser) {
-    banner.classList.add("fadeOut");
+  // se l'utente è già loggato, nascondi subito il banner
+  if (localStorage.getItem("moodacademyUser")) {
+    banner.style.display = "none";
     document.body.style.overflow = "auto";
-    document.body.style.opacity = "1";
     return;
   }
 
-  // Gestione form
   form.addEventListener("submit", (e) => {
     e.preventDefault();
 
@@ -34,30 +26,18 @@ window.addEventListener("load", () => {
       errorBox.textContent = "Compila tutti i campi per entrare.";
       return;
     }
-
     if (password !== "Sc.cognitive") {
       errorBox.textContent = "Password errata. Riprova.";
       passwordInput.value = "";
       return;
     }
 
-    const userData = { name, email, time: new Date().toISOString() };
-    localStorage.setItem("moodacademyUser", JSON.stringify(userData));
+    // salva i dati localmente
+    localStorage.setItem("moodacademyUser", JSON.stringify({ name, email }));
 
-    errorBox.textContent = "";
-
-    // Fade out + rimozione banner
-    banner.classList.add("fadeOut");
-
-    // Forza la rimozione fisica dopo l'animazione
-    setTimeout(() => {
-      if (banner && banner.parentNode) {
-        banner.parentNode.removeChild(banner);
-      }
-      document.body.style.overflow = "auto";
-      document.body.style.opacity = "1";
-      console.log(`🎉 Benvenuto, ${name}! Accesso completato.`);
-    }, 2500);
+    // nasconde subito il banner senza animazioni
+    banner.style.display = "none";
+    document.body.style.overflow = "auto";
+    console.log(`🎉 Accesso effettuato da ${name}`);
   });
 });
-
