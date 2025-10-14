@@ -57,3 +57,16 @@ window.addEventListener("load", () => {
     }, 2500);
   });
 });
+// ✅ Fix visibilità pagina principale
+window.addEventListener("load", () => {
+  const banner = document.getElementById("access-banner");
+  if (banner) {
+    banner.addEventListener("animationend", () => {
+      document.body.style.overflow = "auto"; // riattiva lo scroll
+      document.body.style.opacity = "1";     // assicura visibilità
+    });
+  } else {
+    document.body.style.overflow = "auto";
+    document.body.style.opacity = "1";
+  }
+});
