@@ -50,14 +50,6 @@ document.addEventListener("DOMContentLoaded", () => {
     errorBox.style.display = "none";
     banner.classList.add("fadeOut");
 
-    setTimeout(() => {
-      banner.remove();
-      console.log(`Benvenuto, ${name}! Accesso completato.`);
-    }, 2500);
-  });
-});
-banner.classList.add("fadeOut");
-
 setTimeout(() => {
   banner.style.display = "none"; // 🔥 forza la scomparsa totale
   console.log(`Benvenuto, ${name}! Accesso completato.`);
