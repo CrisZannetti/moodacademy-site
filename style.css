@@ -117,11 +117,13 @@ button:hover {
 
 /* === Animazione fade-out === */
 .fadeOut {
-  animation:fadeout 3s forwards;
+  animation:fadeout 2.5s forwards;
 }
 
 @keyframes fadeout {
-  to { opacity:0; visibility:hidden; }
+  0% { opacity:1; }
+  80% { opacity:0; }
+  100% { opacity:0; visibility:hidden; display:none; }
 }
 
 .error {
