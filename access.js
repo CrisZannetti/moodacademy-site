@@ -14,9 +14,11 @@ document.addEventListener("DOMContentLoaded", () => {
   // Controlla se l'utente ha già effettuato l'accesso
   const storedUser = localStorage.getItem("moodacademyUser");
   if (storedUser) {
-    // Utente già registrato → salta banner
     banner.classList.add("fadeOut");
-    setTimeout(() => banner.remove(), 2500);
+    setTimeout(() => {
+      banner.remove();
+      console.log("Utente già loggato, banner nascosto.");
+    }, 2500);
     return;
   }
 
@@ -50,8 +52,9 @@ document.addEventListener("DOMContentLoaded", () => {
     errorBox.style.display = "none";
     banner.classList.add("fadeOut");
 
-setTimeout(() => {
-  banner.style.display = "none"; // 🔥 forza la scomparsa totale
-  console.log(`Benvenuto, ${name}! Accesso completato.`);
-}, 2500);
-
+    setTimeout(() => {
+      banner.style.display = "none"; // 🔥 forza la scomparsa totale
+      console.log(`Benvenuto, ${name}! Accesso completato.`);
+    }, 2500);
+  });
+});
