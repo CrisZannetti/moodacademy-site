@@ -1,25 +1,34 @@
 document.getElementById("accessForm").addEventListener("submit", function(e) {
   e.preventDefault();
+
+  const name = document.getElementById("nameInput").value.trim();
+  const email = document.getElementById("emailInput").value.trim();
   const pass = document.getElementById("passwordInput").value.trim();
   const error = document.getElementById("error");
 
-  if (pass === "Sc.cognitive") {
-    // invio dati a Formspree
-    fetch(this.action, {
-      method: "POST",
-      body: new FormData(this),
-      headers: { "Accept": "application/json" }
-    });
-
-    // fade-out e sblocco sito
-    document.getElementById("access-banner").classList.add("fadeOut");
-    setTimeout(()=>{
-      document.getElementById("access-banner").remove();
-      document.body.style.overflow = "auto";
-    },3000);
-  } else {
+  if (pass !== "Sc.cognitive") {
     error.textContent = "Password errata.";
+    return;
   }
+
+  // ✅ 1. Genera contenuto CSV
+  const csvContent = `Nome,Email\n${name},${email}\n`;
+
+  // ✅ 2. Crea file scaricabile automaticamente
+  const blob = new Blob([csvContent], { type: "text/csv" });
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement("a");
+  a.href = url;
+  a.download = "moodacademy_users.csv";
+  a.click();
+  URL.revokeObjectURL(url);
+
+  // ✅ 3. Fade-out per sbloccare il sito
+  document.getElementById("access-banner").classList.add("fadeOut");
+  setTimeout(() => {
+    document.getElementById("access-banner").remove();
+    document.body.style.overflow = "auto";
+  }, 3000);
 });
 /* Contrasto campi e placeholder */
 input {
