@@ -56,3 +56,10 @@ document.addEventListener("DOMContentLoaded", () => {
     }, 2500);
   });
 });
+banner.classList.add("fadeOut");
+
+setTimeout(() => {
+  banner.style.display = "none"; // 🔥 forza la scomparsa totale
+  console.log(`Benvenuto, ${name}! Accesso completato.`);
+}, 2500);
+
