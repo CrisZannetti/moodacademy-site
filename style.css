@@ -4,6 +4,9 @@ html,body {
   height:100%;
   font-family:system-ui,Arial,sans-serif;
   color:#fff;
+  overflow:hidden; /* blocca lo scroll finché il banner è attivo */
+  opacity:1;
+  transition:opacity 0.5s ease-in-out;
 }
 
 /* === Banner di accesso === */
@@ -130,16 +133,3 @@ button:hover {
   color:#ff7b7b;
   font-size:.9rem;
 }
-// ✅ Fix visibilità pagina principale
-window.addEventListener("load", () => {
-  const banner = document.getElementById("access-banner");
-  if (banner) {
-    banner.addEventListener("animationend", () => {
-      document.body.style.overflow = "auto"; // riattiva lo scroll
-      document.body.style.opacity = "1";     // assicura visibilità
-    });
-  } else {
-    document.body.style.overflow = "auto";
-    document.body.style.opacity = "1";
-  }
-});
