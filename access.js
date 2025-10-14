@@ -1,67 +1,58 @@
-document.getElementById("accessForm").addEventListener("submit", function(e) {
-  e.preventDefault();
+// === ACCESSO MOOD ACADEMY ===
+// Gestisce login, salvataggio utente e transizione
 
-  const name = document.getElementById("nameInput").value.trim();
-  const email = document.getElementById("emailInput").value.trim();
-  const pass = document.getElementById("passwordInput").value.trim();
-  const error = document.getElementById("error");
+document.addEventListener("DOMContentLoaded", () => {
+  const banner = document.getElementById("access-banner");
+  const form = document.querySelector("form");
+  const nameInput = document.querySelector("input[name='name']");
+  const emailInput = document.querySelector("input[name='email']");
+  const passwordInput = document.querySelector("input[name='password']");
+  const errorBox = document.createElement("div");
+  errorBox.className = "error";
+  form.appendChild(errorBox);
 
-  if (pass !== "Sc.cognitive") {
-    error.textContent = "Password errata.";
+  // Controlla se l'utente ha già effettuato l'accesso
+  const storedUser = localStorage.getItem("moodacademyUser");
+  if (storedUser) {
+    // Utente già registrato → salta banner
+    banner.classList.add("fadeOut");
+    setTimeout(() => banner.remove(), 2500);
     return;
   }
 
-  // ✅ 1. Genera contenuto CSV
-  const csvContent = `Nome,Email\n${name},${email}\n`;
+  // Quando invia il form
+  form.addEventListener("submit", (e) => {
+    e.preventDefault();
+    const name = nameInput.value.trim();
+    const email = emailInput.value.trim();
+    const password = passwordInput.value.trim();
 
-  // ✅ 2. Crea file scaricabile automaticamente
-  const blob = new Blob([csvContent], { type: "text/csv" });
-  const url = URL.createObjectURL(blob);
-  const a = document.createElement("a");
-  a.href = url;
-  a.download = "moodacademy_users.csv";
-  a.click();
-  URL.revokeObjectURL(url);
+    // Controlla la password
+    if (password !== "Sc.cognitive") {
+      errorBox.textContent = "Password errata. Riprova.";
+      errorBox.style.display = "block";
+      passwordInput.value = "";
+      return;
+    }
 
-  // ✅ 3. Fade-out per sbloccare il sito
-  document.getElementById("access-banner").classList.add("fadeOut");
-  setTimeout(() => {
-    document.getElementById("access-banner").remove();
-    document.body.style.overflow = "auto";
-  }, 3000);
+    // Controlla campi vuoti
+    if (!name || !email) {
+      errorBox.textContent = "Compila tutti i campi per entrare.";
+      errorBox.style.display = "block";
+      return;
+    }
+
+    // Salva utente localmente
+    const userData = { name, email, time: new Date().toISOString() };
+    localStorage.setItem("moodacademyUser", JSON.stringify(userData));
+
+    // Animazione di uscita e rimozione banner
+    errorBox.style.display = "none";
+    banner.classList.add("fadeOut");
+
+    setTimeout(() => {
+      banner.remove();
+      console.log(`Benvenuto, ${name}! Accesso completato.`);
+    }, 2500);
+  });
 });
-/* Contrasto campi e placeholder */
-input {
-  background: rgba(255,255,255,0.25);
-  color: #fff;                 /* testo bianco */
-  border: 1px solid rgba(255,255,255,0.55);
-  box-shadow: 0 6px 24px rgba(0,0,0,0.25);
-  font-weight: 600;
-}
-
-input::placeholder {
-  color: rgba(255,255,255,0.95); /* placeholder quasi bianco */
-  opacity: 1;                    /* Safari/iOS */
-}
-
-input:focus {
-  outline: none;
-  border-color: #fff;
-  background: rgba(255,255,255,0.35);
-}
-
-/* Scatola “vetro” un po’ più leggibile */
-.glass {
-  backdrop-filter: blur(14px);
-  background: rgba(30,30,35,0.22);
-  border: 1px solid rgba(255,255,255,0.12);
-}
-
-/* Overlay leggermente più scura per aumentare contrasto globale */
-.overlay {
-  background: linear-gradient(
-    120deg,
-    rgba(35,35,35,0.75),
-    rgba(70,80,95,0.65)
-  );
-}
