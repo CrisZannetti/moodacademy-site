@@ -1,5 +1,4 @@
 // === ACCESSO MOOD ACADEMY ===
-// Gestisce login, salvataggio utente e transizione
 
 window.addEventListener("load", () => {
   console.log("✅ access.js caricato correttamente");
@@ -18,11 +17,11 @@ window.addEventListener("load", () => {
   const storedUser = localStorage.getItem("moodacademyUser");
   if (storedUser) {
     banner.classList.add("fadeOut");
-    setTimeout(() => banner.remove(), 2000);
+    document.body.style.overflow = "auto";
     return;
   }
 
-  // Quando invia il form
+  // Gestione form
   form.addEventListener("submit", (e) => {
     e.preventDefault();
 
@@ -30,7 +29,6 @@ window.addEventListener("load", () => {
     const email = emailInput.value.trim();
     const password = passwordInput.value.trim();
 
-    // Controllo campi
     if (!name || !email || !password) {
       errorBox.textContent = "Compila tutti i campi per entrare.";
       return;
@@ -42,31 +40,18 @@ window.addEventListener("load", () => {
       return;
     }
 
-    // Salva utente localmente
     const userData = { name, email, time: new Date().toISOString() };
     localStorage.setItem("moodacademyUser", JSON.stringify(userData));
 
-    // Rimuove errori
     errorBox.textContent = "";
-
-    // Fade out + rimozione banner
     banner.classList.add("fadeOut");
-    setTimeout(() => {
-      banner.remove();
-      console.log(`🎉 Benvenuto, ${name}! Accesso completato.`);
-    }, 2500);
-  });
-});
-// ✅ Fix visibilità pagina principale
-window.addEventListener("load", () => {
-  const banner = document.getElementById("access-banner");
-  if (banner) {
+
+    // Quando finisce l'animazione → mostra il sito
     banner.addEventListener("animationend", () => {
-      document.body.style.overflow = "auto"; // riattiva lo scroll
-      document.body.style.opacity = "1";     // assicura visibilità
+      banner.remove();
+      document.body.style.overflow = "auto";
+      document.body.style.opacity = "1";
+      console.log(`🎉 Benvenuto, ${name}! Accesso completato.`);
     });
-  } else {
-    document.body.style.overflow = "auto";
-    document.body.style.opacity = "1";
-  }
+  });
 });
