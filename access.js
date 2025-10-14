@@ -18,6 +18,7 @@ window.addEventListener("load", () => {
   if (storedUser) {
     banner.classList.add("fadeOut");
     document.body.style.overflow = "auto";
+    document.body.style.opacity = "1";
     return;
   }
 
@@ -44,20 +45,19 @@ window.addEventListener("load", () => {
     localStorage.setItem("moodacademyUser", JSON.stringify(userData));
 
     errorBox.textContent = "";
-    
- // Fade out + rimozione banner
-banner.classList.add("fadeOut");
 
-// Forza la rimozione fisica dopo l'animazione
-setTimeout(() => {
-  if (banner && banner.parentNode) {
-    banner.parentNode.removeChild(banner);
-  }
-  document.body.style.overflow = "auto";
-  document.body.style.opacity = "1";
-  console.log(`🎉 Benvenuto, ${name}! Accesso completato.`);
-}, 2500);
+    // Fade out + rimozione banner
+    banner.classList.add("fadeOut");
 
-    });
+    // Forza la rimozione fisica dopo l'animazione
+    setTimeout(() => {
+      if (banner && banner.parentNode) {
+        banner.parentNode.removeChild(banner);
+      }
+      document.body.style.overflow = "auto";
+      document.body.style.opacity = "1";
+      console.log(`🎉 Benvenuto, ${name}! Accesso completato.`);
+    }, 2500);
   });
 });
+
