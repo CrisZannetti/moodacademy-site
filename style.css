@@ -229,39 +229,52 @@ html, body {
   transform: scale(1.05);
 }
 
-/* Bordo animato tipo foil */
-.anim-card::before {
+/* === Effetto foil solo intorno alla carta === */
+.anim-card {
+  position: relative;
+  border-radius: 12px;
+  overflow: visible; /* consente al bordo di uscire leggermente */
+  transition: transform 0.3s ease;
+}
+
+.anim-card:hover {
+  transform: scale(1.05);
+}
+
+/* Contenitore dell'immagine per il bordo foil */
+.carta-wrapper {
+  position: relative;
+  border-radius: 12px;
+  overflow: hidden;
+  display: inline-block;
+}
+
+.carta-wrapper::before {
   content: "";
   position: absolute;
   inset: -3px;
   border-radius: 14px;
   background: linear-gradient(
     120deg,
-    rgba(0, 180, 255, 0.5),
-    rgba(255, 140, 0, 0.5),
-    rgba(200, 100, 255, 0.5),
-    rgba(0, 180, 255, 0.5)
+    rgba(0, 180, 255, 0.6),
+    rgba(255, 140, 0, 0.6),
+    rgba(200, 100, 255, 0.6),
+    rgba(0, 180, 255, 0.6)
   );
   background-size: 300% 300%;
   animation: foilGlow 4s linear infinite;
   opacity: 0;
-  z-index: 2;
+  z-index: 1;
   pointer-events: none;
 }
 
-@keyframes foilGlow {
-  0% { background-position: 0% 50%; }
-  50% { background-position: 100% 50%; }
-  100% { background-position: 0% 50%; }
-}
-
-.anim-card:hover::before {
+.anim-card:hover .carta-wrapper::before {
   opacity: 1;
 }
 
 .carta-svg {
   position: relative;
-  z-index: 1;
+  z-index: 2;
   display: block;
   width: 100%;
   height: auto;
@@ -273,3 +286,10 @@ html, body {
   filter: brightness(1.2) saturate(1.2);
   transform: scale(1.03);
 }
+
+@keyframes foilGlow {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
