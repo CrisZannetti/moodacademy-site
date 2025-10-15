@@ -136,10 +136,20 @@
   <!-- 🔍 Popup fullscreen per carta -->
 <div id="cardPopup" class="popup">
   <span class="close-btn" id="closePopup">&times;</span>
-  <img id="popupImg" src="" alt="Carta ingrandita" class="popup-img">
+
+  <div class="card3d-container">
+    <div class="card3d">
+      <img id="popupFront" alt="Carta fronte" class="popup-face front">
+      <img id="popupBack" alt="Carta retro" class="popup-face back" src="assets/carte/back.svg">
+    </div>
+  </div>
+
   <p id="popupCaption" class="popup-caption"></p>
 </div>
 
+
+<script defer src="cards.js?v=1"></script>
+  
 </body>
 </html>
 
