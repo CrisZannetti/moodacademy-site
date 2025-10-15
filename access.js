@@ -35,7 +35,7 @@ window.addEventListener("DOMContentLoaded", () => {
     // salva i dati localmente
     localStorage.setItem("moodacademyUser", JSON.stringify({ name, email }));
 
-    // Rimozione banner sicura (senza eval)
+// Rimozione banner sicura (senza eval)
 setTimeout(function() {
   if (banner) {
     banner.style.display = "none";
@@ -44,5 +44,6 @@ setTimeout(function() {
   document.body.style.opacity = "1";
   console.log(`🎉 Accesso completato.`);
 }, 2500);
+
   });
 });
