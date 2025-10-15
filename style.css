@@ -156,18 +156,32 @@ html, body {
   background: linear-gradient(120deg, #0d0d16, #1b1b2e);
 }
 
+/* === HERO FLUID BACKGROUND === */
 .hero-bg {
   position: absolute;
   inset: 0;
-  background: radial-gradient(circle at 30% 30%, rgba(0,180,255,0.3), transparent 70%),
-              radial-gradient(circle at 70% 70%, rgba(255,140,0,0.25), transparent 70%);
-  animation: moveGrad 20s ease-in-out infinite alternate;
+  background: radial-gradient(circle at 20% 20%, rgba(0,180,255,0.3), transparent 60%),
+              radial-gradient(circle at 80% 60%, rgba(255,140,0,0.25), transparent 70%),
+              radial-gradient(circle at 50% 80%, rgba(120,60,255,0.25), transparent 70%);
+  filter: blur(60px);
+  transform: scale(1.2);
+  animation: fluidMove 20s ease-in-out infinite alternate;
   z-index: 0;
 }
 
-@keyframes moveGrad {
-  0% { background-position: 0% 50%; }
-  100% { background-position: 100% 50%; }
+@keyframes fluidMove {
+  0% {
+    transform: translate(0, 0) scale(1.2);
+    background-position: 20% 20%, 80% 60%, 50% 80%;
+  }
+  50% {
+    transform: translate(-2%, -3%) scale(1.25);
+    background-position: 30% 30%, 70% 70%, 55% 70%;
+  }
+  100% {
+    transform: translate(2%, 3%) scale(1.2);
+    background-position: 15% 25%, 85% 65%, 50% 85%;
+  }
 }
 
 .hero-content {
