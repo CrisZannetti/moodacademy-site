@@ -1,8 +1,8 @@
-// === ACCESSO MOOD ACADEMY (CSP-SAFE VERSION) ===
+// === ACCESSO MOOD ACADEMY (CSP-SAFE FINAL) ===
 
 window.addEventListener("load", function () {
-console.log("✅ access.js avviato dopo caricamento pagina");
-  
+  console.log("✅ access.js avviato dopo caricamento pagina");
+
   const banner = document.getElementById("access-banner");
   const form = document.getElementById("accessForm");
   const nameInput = document.getElementById("nameInput");
@@ -10,23 +10,25 @@ console.log("✅ access.js avviato dopo caricamento pagina");
   const passwordInput = document.getElementById("passwordInput");
   const errorBox = document.getElementById("error");
 
-  // --- Verifica presenza elementi ---
-  if (!banner || !form) {
-    console.warn("⚠️ access.js: elementi non trovati, controlla gli ID in index.html");
+  // Se il banner non esiste (già rimosso o utente loggato)
+  if (!banner) {
+    console.log("ℹ️ access-banner non presente (già rimosso o utente loggato).");
+    document.body.style.overflow = "auto";
+    document.body.style.opacity = "1";
     return;
   }
 
-  // --- Utente già autenticato ---
+  // Utente già autenticato
   const storedUser = localStorage.getItem("moodacademyUser");
   if (storedUser) {
-    banner.remove(); // rimuove del tutto il banner
+    banner.remove();
     document.body.style.overflow = "auto";
     document.body.style.opacity = "1";
     console.log("👋 Bentornato su Mood Academy!");
     return;
   }
 
-  // --- Gestione del form ---
+  // Gestione form
   form.addEventListener("submit", function (event) {
     event.preventDefault();
 
@@ -45,22 +47,18 @@ console.log("✅ access.js avviato dopo caricamento pagina");
       return;
     }
 
-    // --- Salvataggio utente ---
     const userData = { name, email, time: new Date().toISOString() };
     localStorage.setItem("moodacademyUser", JSON.stringify(userData));
 
-    // --- Rimozione banner ---
     errorBox.textContent = "";
     banner.classList.add("fadeOut");
 
-    // Rimuove il banner dopo 2.5 s (senza usare stringhe in setTimeout)
     setTimeout(function () {
-      if (banner && banner.parentNode) {
-        banner.parentNode.removeChild(banner);
-      }
+      if (banner && banner.parentNode) banner.parentNode.removeChild(banner);
       document.body.style.overflow = "auto";
       document.body.style.opacity = "1";
       console.log(`🎉 Benvenuto, ${name}! Accesso completato.`);
     }, 2500);
   });
 });
+
