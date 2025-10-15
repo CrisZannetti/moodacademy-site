@@ -14,15 +14,37 @@
     return;
   }
 
-  // Eventi click su ogni carta
-  cards.forEach(card => {
-    card.addEventListener("click", () => {
-      popupImg.src = card.src;
-      caption.textContent = card.alt || "";
-      popup.classList.add("show");
-      document.body.style.overflow = "hidden";
-    });
+// Eventi click su ogni carta
+cards.forEach(card => {
+  card.addEventListener("click", () => {
+    popupFront.src = card.src; // fronte = carta cliccata
+    popup.classList.add("show");
+    document.body.style.overflow = "hidden";
+    caption.textContent = card.alt || "";
+
+    let isFlipped = false;
+    const card3d = document.querySelector(".card3d");
+
+    // Reset ogni volta che apri
+    card3d.style.transform = "rotateY(0deg)";
+
+    // Rotazione con movimento mouse (3D effetto)
+    let rotateY = 0;
+    card3d.onmousemove = (e) => {
+      const rect = card3d.getBoundingClientRect();
+      const x = e.clientX - rect.left;
+      rotateY = ((x / rect.width) - 0.5) * 30;
+      card3d.style.transform = `rotateY(${rotateY}deg)`;
+    };
+
+    // Click per girare la carta
+    card3d.onclick = () => {
+      isFlipped = !isFlipped;
+      card3d.style.transform = isFlipped ? "rotateY(180deg)" : "rotateY(0deg)";
+    };
   });
+});
+
 
   // Chiudi con X
   closeBtn.addEventListener("click", () => {
