@@ -143,3 +143,63 @@ html, body {
   color:#ff7b7b;
   font-size:.9rem;
 }
+/* === HERO SECTION === */
+#hero {
+  position: relative;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  color: #fff;
+  text-align: center;
+  background: linear-gradient(120deg, #0d0d16, #1b1b2e);
+}
+
+.hero-bg {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at 30% 30%, rgba(0,180,255,0.3), transparent 70%),
+              radial-gradient(circle at 70% 70%, rgba(255,140,0,0.25), transparent 70%);
+  animation: moveGrad 20s ease-in-out infinite alternate;
+  z-index: 0;
+}
+
+@keyframes moveGrad {
+  0% { background-position: 0% 50%; }
+  100% { background-position: 100% 50%; }
+}
+
+.hero-content {
+  position: relative;
+  z-index: 1;
+  animation: fadeIn 2s ease-in-out forwards;
+  opacity: 0;
+}
+
+@keyframes fadeIn {
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.hero-logo {
+  width: 220px;
+  margin-bottom: 1.5rem;
+  filter: drop-shadow(0 0 10px rgba(255,255,255,0.4));
+}
+
+.hero-btn {
+  display: inline-block;
+  margin-top: 1.5rem;
+  padding: 0.9rem 1.5rem;
+  border-radius: 8px;
+  background: linear-gradient(135deg, #00b4ff, #ff8a00);
+  color: #fff;
+  text-decoration: none;
+  font-weight: bold;
+  transition: transform 0.2s ease, box-shadow 0.3s ease;
+}
+
+.hero-btn:hover {
+  transform: scale(1.08);
+  box-shadow: 0 0 20px rgba(255,255,255,0.4);
+}
