@@ -128,6 +128,16 @@ button:hover {
   80% { opacity:0; }
   100% { opacity:0; visibility:hidden; display:none; }
 }
+/* === FIX VISIBILITÀ E SCROLL SU GITHUB PAGES === */
+html, body {
+  height: auto !important;
+  min-height: 100vh !important;
+  overflow: auto !important;
+  opacity: 1 !important;
+  visibility: visible !important;
+  display: block !important;
+  background: #fff !important;
+}
 
 .error {
   color:#ff7b7b;
