@@ -217,7 +217,7 @@ html, body {
   transform: scale(1.08);
   box-shadow: 0 0 20px rgba(255,255,255,0.4);
 }
-/* === Effetto glow carta SVG === */
+/* === Effetto FOIL dinamico === */
 .anim-card {
   position: relative;
   border-radius: 12px;
@@ -229,7 +229,54 @@ html, body {
   transform: scale(1.05);
 }
 
+/* === Effetto foil solo intorno alla carta === */
+.anim-card {
+  position: relative;
+  border-radius: 12px;
+  overflow: visible; /* consente al bordo di uscire leggermente */
+  transition: transform 0.3s ease;
+}
+
+.anim-card:hover {
+  transform: scale(1.05);
+}
+
+/* Contenitore dell'immagine per il bordo foil */
+.carta-wrapper {
+  position: relative;
+  border-radius: 12px;
+  overflow: hidden;
+  display: inline-block;
+}
+
+.carta-wrapper::before {
+  content: "";
+  position: absolute;
+  inset: -3px;
+  border-radius: 14px;
+  background: linear-gradient(
+   120deg,
+    #00eaff,
+    #ff00c8,
+    #ffee00,
+    #00eaff
+);
+
+  background-size: 300% 300%;
+  animation: foilGlow 4s linear infinite;
+  opacity: 0;
+  z-index: 0;
+  mix-blend-mode: screen;
+  pointer-events: none;
+}
+
+.anim-card:hover .carta-wrapper::before {
+  opacity: 1;
+}
+
 .carta-svg {
+  position: relative;
+  z-index: 2;
   display: block;
   width: 100%;
   height: auto;
@@ -237,23 +284,73 @@ html, body {
   transition: filter 0.4s ease, transform 0.4s ease;
 }
 
-/* Luce esterna dinamica */
-.anim-card::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  border-radius: 12px;
-  box-shadow: 0 0 30px rgba(0, 180, 255, 0.2), 0 0 60px rgba(255, 140, 0, 0.1);
-  opacity: 0;
-  transition: opacity 0.5s ease-in-out;
-}
-
-.anim-card:hover::before {
-  opacity: 1;
-  box-shadow: 0 0 40px rgba(0, 180, 255, 0.4), 0 0 80px rgba(255, 140, 0, 0.2);
-}
-
 .anim-card:hover .carta-svg {
-  filter: brightness(1.15) saturate(1.1);
+  filter: brightness(1.2) saturate(1.2);
   transform: scale(1.03);
 }
+
+@keyframes foilGlow {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* === POPUP FULLSCREEN CARTA === */
+.popup {
+  display: none;
+  position: fixed;
+  z-index: 9999;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.85);
+  backdrop-filter: blur(4px);
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.popup.show {
+  display: flex;
+  animation: fadeIn 0.3s ease-in-out;
+}
+
+.popup-img {
+  max-width: 90%;
+  max-height: 85%;
+  border-radius: 16px;
+  box-shadow: 0 0 30px rgba(255, 255, 255, 0.3);
+  animation: zoomIn 0.3s ease-in-out;
+}
+
+.popup-caption {
+  color: #fff;
+  margin-top: 1rem;
+  font-size: 1.1rem;
+  text-align: center;
+  font-weight: 500;
+}
+
+.close-btn {
+  position: absolute;
+  top: 1rem;
+  right: 1.5rem;
+  font-size: 2rem;
+  color: #fff;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+.close-btn:hover {
+  transform: scale(1.2);
+  color: #ffb84d;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes zoomIn {
+  from { transform: scale(0.9); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
+}
+

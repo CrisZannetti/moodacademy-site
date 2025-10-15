@@ -79,19 +79,27 @@
       <h2>Carte (anteprima)</h2>
       <div class="grid carte-grid">
       <figure class="card anim-card">
-      <img src="assets/carte/Bella.svg" alt="Bella" class="resp carta-img">
-      <figcaption>Scienze Naturalistiche - Scienze Naturali</figcaption>
+      <div class="carta-wrapper">
+      <img src="assets/carte/Bella.svg" alt="Bella" class="carta-svg">
+      </div>
+      <figcaption>Scienze Naturalistiche</figcaption>
       </figure>
       <figure class="card anim-card">
-      <img src="assets/carte/Laura.svg" alt="Laura" class="resp carta-img">
+      <div class="carta-wrapper">
+      <img src="assets/carte/Laura.svg" alt="Laura" class="carta-svg">
+      </div>
       <figcaption>Amico 3° anno</figcaption>
       </figure>
       <figure class="card anim-card">
-      <img src="assets/carte/Vale.svg" alt="Vale" class="resp carta-img">
-      <figcaption>Scienze Cognitive - Scienze e tecniche Psicologiche</figcaption>
+      <div class="carta-wrapper">
+      <img src="assets/carte/Vale.svg" alt="Vale" class="carta-svg">
+      </div>
+      <figcaption>Scienze Cognitive</figcaption>
       </figure>
       <figure class="card anim-card">
-      <img src="assets/carte/Soraya.svg" alt="Soraya - Full Art" class="resp carta-img">
+      <div class="carta-wrapper">
+      <img src="assets/carte/Soraya.svg" alt="Soraya - Full Art" class="carta-svg">
+      </div>      
       <figcaption>Scienze Mediche - Full Art</figcaption>
       </figure>
      <!-- Aggiungi altre figure/carte se vuoi -->
@@ -124,6 +132,14 @@
 
   <!-- 🔥 Script di accesso -->
   <script defer src="access.js?v=17"></script>
+  
+  <!-- 🔍 Popup fullscreen per carta -->
+<div id="cardPopup" class="popup">
+  <span class="close-btn" id="closePopup">&times;</span>
+  <img id="popupImg" src="" alt="Carta ingrandita" class="popup-img">
+  <p id="popupCaption" class="popup-caption"></p>
+</div>
+
 </body>
 </html>
 

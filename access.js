@@ -62,3 +62,33 @@ window.addEventListener("load", function () {
   });
 });
 
+// === ZOOM FULLSCREEN CARTA ===
+document.addEventListener("DOMContentLoaded", () => {
+  const cards = document.querySelectorAll(".carta-svg");
+  const popup = document.getElementById("cardPopup");
+  const popupImg = document.getElementById("popupImg");
+  const caption = document.getElementById("popupCaption");
+  const closeBtn = document.getElementById("closePopup");
+
+  cards.forEach(card => {
+    card.addEventListener("click", () => {
+      popupImg.src = card.src;
+      caption.textContent = card.alt || "";
+      popup.classList.add("show");
+      document.body.style.overflow = "hidden";
+    });
+  });
+
+  closeBtn.addEventListener("click", () => {
+    popup.classList.remove("show");
+    document.body.style.overflow = "auto";
+  });
+
+  popup.addEventListener("click", (e) => {
+    if (e.target === popup) {
+      popup.classList.remove("show");
+      document.body.style.overflow = "auto";
+    }
+  });
+});
+
