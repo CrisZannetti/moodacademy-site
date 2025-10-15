@@ -309,16 +309,8 @@ html, body {
 }
 
 .popup.show {
-  display: flex;
+  display: flex !important; /* forza il popup visibile */
   animation: fadeIn 0.3s ease-in-out;
-}
-
-.popup-img {
-  max-width: 90%;
-  max-height: 85%;
-  border-radius: 16px;
-  box-shadow: 0 0 30px rgba(255, 255, 255, 0.3);
-  animation: zoomIn 0.3s ease-in-out;
 }
 
 .popup-caption {
@@ -356,7 +348,7 @@ html, body {
 
 /* === POPUP CON EFFETTO 3D === */
 .card3d-container {
-  perspective: 1000px;
+  perspective: 1200px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -368,7 +360,7 @@ html, body {
   height: 480px;
   position: relative;
   transform-style: preserve-3d;
-  transition: transform 0.8s ease;
+  transition: transform 0.6s ease;
   cursor: grab;
 }
 
@@ -378,15 +370,18 @@ html, body {
   height: 100%;
   backface-visibility: hidden;
   border-radius: 16px;
-  box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+  box-shadow: 0 12px 28px rgba(0,0,0,0.35);
   transform: rotateY(0deg);
+  background: #111;
 }
 
 .popup-face.back {
   transform: rotateY(180deg);
+  background: #000;
 }
 
 /* Glow elegante */
-.card3d-container:hover .card3d {
-  box-shadow: 0 0 30px rgba(255,255,255,0.3);
+.card3d:hover {
+  box-shadow: 0 0 35px rgba(255, 255, 255, 0.35);
+  transition: box-shadow 0.4s ease;
 }
