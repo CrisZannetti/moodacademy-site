@@ -1,6 +1,8 @@
 // === ACCESSO MOOD ACADEMY (CSP-SAFE VERSION) ===
 
-document.addEventListener("DOMContentLoaded", function () {
+window.addEventListener("load", function () {
+console.log("✅ access.js avviato dopo caricamento pagina");
+  
   const banner = document.getElementById("access-banner");
   const form = document.getElementById("accessForm");
   const nameInput = document.getElementById("nameInput");
