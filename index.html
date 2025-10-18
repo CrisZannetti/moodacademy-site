@@ -44,41 +44,49 @@
     <a href="#contatti">Contatti</a>
   </div>
 </nav>
-  <div id="access-banner">
-    <div class="overlay"></div>
-    <div class="access-box glass">
-     <img src="assets/logo.png" alt="Mood Academy Logo" class="logo">
-     <form id="accessForm">
+  
+<!-- 🔹 ACCESS BANNER -->
+<div id="access-banner">
+  <div class="overlay"></div>
+  <div class="access-box glass">
+    <img src="assets/logo.png" alt="Mood Academy Logo" class="logo">
+    <form id="accessForm">
       <input type="text" id="nameInput" name="name" placeholder="Username" required>
       <input type="email" id="emailInput" name="email" placeholder="La tua email" required>
       <input type="password" id="passwordInput" name="password" placeholder="Password" required>
       <button type="submit" id="enterBtn">Entra nella Mood Academy</button>
       <p id="error" class="error"></p>
-     </form>
-    </div>
+    </form>
   </div>
-  <section id="hero">
+</div>
+
+<!-- 🔹 HERO SECTION (fuori da main) -->
+<section id="hero">
   <div class="hero-bg"></div>
   <div class="hero-content">
     <img src="assets/logo.png" alt="Mood Academy Logo" class="hero-logo">
     <h1>Benvenut* nella Mood Academy</h1>
     <a href="#regolamento" class="hero-btn">Inizia il viaggio</a>
   </div>
-  </section>
-  <header>
-    <h1 aria-label="Mood Academy Trading Card Game">Mood Academy TCG</h1>
-    <p class="note">Il primo gioco di carte Universitario</p>
-    <nav aria-label="Sezioni del sito">
-      <a href="#regolamento">Regolamento</a>
-      <a href="#carte">Carte</a>
-      <a href="#news">News</a>
-      <a href="#download">Download</a>
-      <a href="#contatti">Contatti</a>
-    </nav>
-    <p><a class="cta" href="#news" aria-label="Vai alle novità e iscriviti agli aggiornamenti">Seguimi per il lancio</a></p>
-  </header>
+</section>
 
-  <main>
+
+<!-- 🔹 HEADER e CONTENUTO sotto -->
+<header>
+  <h1 aria-label="Mood Academy Trading Card Game">Mood Academy TCG</h1>
+  <p class="note">Il primo gioco di carte Universitario</p>
+  <nav aria-label="Sezioni del sito">
+    <a href="#regolamento">Regolamento</a>
+    <a href="#carte">Carte</a>
+    <a href="#news">News</a>
+    <a href="#download">Download</a>
+    <a href="#contatti">Contatti</a>
+  </nav>
+  <p><a class="cta" href="#news" aria-label="Vai alle novità e iscriviti agli aggiornamenti">Seguimi per il lancio</a></p>
+</header>
+
+<!-- 🔹 MAIN contenuto generale -->
+<main>
     <section id="regolamento">
       <h2>Regolamento</h2>
       <p>In breve: Task Point (TP), Mood, obbligo di avere almeno 1 <em>Studente</em> in campo, zona <em>Rimandi</em>, Union, ecc. Scarica il PDF completo sotto.</p>
@@ -145,8 +153,8 @@
     © 2025 Mood Academy TCG • Sito statico su GitHub Pages • Mobile-first
   </footer>
 
-  <!-- 🔥 Script di accesso -->
-  <script defer src="access.js?v=17"></script>
+<!-- 🔥 Script di accesso -->
+<script defer src="access.js?v=17"></script>
 
   <!-- === POPUP 3D CARTA === -->
 <div id="cardPopup" class="popup">
@@ -162,13 +170,13 @@
   <p id="popupCaption" class="popup-caption"></p>
 </div>
 
+<script defer src="access.js?v=17"></script>
 <script defer src="cards.js?v=1"></script>
 <script>
 document.getElementById("menuToggle").addEventListener("click", () => {
   document.getElementById("navLinks").classList.toggle("show");
 });
 </script>
-  
 </body>
 </html>
 
