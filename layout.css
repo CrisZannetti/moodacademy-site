@@ -1,5 +1,5 @@
 /* === LAYOUT CSS — Mood Academy TCG === */
-/* Versione 1.0 - compatibile con access.js & cards.js */
+/* Versione 1.1 — Ottimizzata per desktop e mobile */
 
 :root {
   --accent: #3b5bdb;
@@ -10,19 +10,15 @@
   --card-bg: #fff;
 }
 
-/* Reset base */
-body {
-  background: var(--bg);
-  color: var(--text);
-  font-family: "Inter", system-ui, sans-serif;
-  margin: 0;
-  overflow-x: hidden;
-  transition: background 0.3s ease;
-  background: linear-gradient(180deg, #f7f8fb 0%, #eef1f8 100%);
-}
+/* === BASE === */
 html, body {
-  max-width: 100%;
+  max-width: 100vw;
   overflow-x: hidden;
+  margin: 0;
+  font-family: "Inter", system-ui, sans-serif;
+  background: linear-gradient(180deg, #f7f8fb 0%, #eef1f8 100%);
+  color: var(--text);
+  transition: background 0.3s ease;
 }
 
 /* === NAVBAR FISSA === */
@@ -41,8 +37,6 @@ html, body {
   padding: 0 1.5rem;
   z-index: 1000;
   box-shadow: 0 2px 10px rgba(0,0,0,0.05);
-  box-sizing: border-box;
-  overflow-x: hidden;
 }
 
 .nav-logo {
@@ -100,56 +94,39 @@ html, body {
     padding: 1rem;
     box-shadow: 0 6px 16px rgba(0,0,0,0.1);
   }
-
-  .nav-links.show {
-    display: flex;
-  }
-
-  .menu-toggle {
-    display: block;
-  }
+  .nav-links.show { display: flex; }
+  .menu-toggle { display: block; }
 }
 
-/* === HERO SECTION (effetto fluido) === */
+/* === HERO SECTION === */
 #hero {
   position: relative;
-  min-height: 45vh;
+  min-height: 60vh;
   display: flex;
   justify-content: center;
   align-items: center;
   text-align: center;
-  overflow: hidden;
-  padding: 2rem 1rem;
+  padding: 3rem 1rem;
   box-sizing: border-box;
   background: radial-gradient(circle at 30% 50%, #eaf0ff, #f7f8fb, #e6ecff);
   background-size: 200% 200%;
   animation: heroFlow 15s ease-in-out infinite alternate;
 }
 
-/* === ANIMAZIONE FLUIDA === */
 @keyframes heroFlow {
-  0% {
-    background-position: 30% 50%;
-  }
-  50% {
-    background-position: 70% 60%;
-  }
-  100% {
-    background-position: 40% 40%;
-  }
+  0% { background-position: 30% 50%; }
+  50% { background-position: 70% 60%; }
+  100% { background-position: 40% 40%; }
 }
 
-/* Sfondo con immagine tenue (banner) */
 .hero-bg {
   position: absolute;
   inset: 0;
   background: url("assets/banner.png") center/cover no-repeat;
   opacity: 0.25;
   z-index: 1;
-  /* RIMUOVI filter: blur(2px); */
 }
 
-/* Contenuto principale */
 .hero-content {
   position: relative;
   z-index: 2;
@@ -160,100 +137,37 @@ html, body {
   text-shadow: 0 1px 3px rgba(255,255,255,0.6);
 }
 
-/* Logo */
 .hero-logo {
   width: 130px;
   margin-bottom: 1rem;
   filter: drop-shadow(0 0 6px rgba(0,0,0,0.15));
 }
 
-/* Titolo */
 #hero h1 {
-  font-size: 2.2rem;
+  font-size: 2.4rem;
   font-weight: 700;
-  margin-bottom: 0.8rem;
   color: #111;
+  margin-bottom: 0.8rem;
 }
 
-/* Pulsante */
 .hero-btn {
   display: inline-block;
   margin-top: 1rem;
-  padding: 0.7rem 1.2rem;
+  padding: 0.8rem 1.4rem;
   font-size: 1rem;
   background: linear-gradient(90deg, #3d6df9, #6f9eff);
   color: #fff;
   text-decoration: none;
   border-radius: 8px;
   box-shadow: 0 3px 8px rgba(0,0,0,0.15);
-  transition: transform 0.25s ease, box-shadow 0.25s ease, background 0.4s ease;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
 }
 
 .hero-btn:hover {
   transform: scale(1.05);
   box-shadow: 0 6px 15px rgba(0,0,0,0.25);
-  background: linear-gradient(90deg, #5b84ff, #3d6df9);
 }
 
-/* Responsive */
-@media (max-width: 700px) {
-  #hero {
-    min-height: 50vh;
-  }
-
-  #hero h1 {
-    font-size: 1.8rem;
-  }
-
-  .hero-logo {
-    width: 110px;
-  }
-}
-
-/* === HEADER === */
-header {
-  background: var(--card-bg);
-  border-bottom: 1px solid #e2e4ec;
-  padding: 2rem 1rem;
-  text-align: center;
-}
-
-header h1 {
-  font-size: 1.9rem;
-  margin-bottom: 0.3rem;
-}
-
-header .note {
-  color: #555;
-  font-weight: 500;
-  margin-bottom: 1rem;
-}
-
-/* Navigation */
-nav {
-  display: flex;
-  justify-content: center;
-  gap: 1rem;
-  flex-wrap: wrap;
-  margin-bottom: 0.8rem;
-}
-
-nav a {
-  text-decoration: none;
-  color: var(--text);
-  border: 1px solid #ddd;
-  border-radius: 6px;
-  padding: 0.5rem 1rem;
-  transition: all 0.2s ease;
-}
-
-nav a:hover {
-  background: var(--accent-light);
-  color: #fff;
-  border-color: var(--accent-light);
-}
-
-/* === SECTIONS === */
 /* === CONTENUTO CENTRALE === */
 main {
   max-width: 1300px;
@@ -272,8 +186,7 @@ section {
   text-align: center;
 }
 
-/* === CARTE === */
-/* === GRIGLIA GENERALE === */
+/* === GRIGLIA CARTE === */
 .grid {
   display: grid;
   gap: 1.5rem;
@@ -283,9 +196,9 @@ section {
   width: 100%;
   box-sizing: border-box;
 }
+
 .carte-grid {
   margin-top: 2rem;
-  max-width: 1100px;
   margin-left: auto;
   margin-right: auto;
   justify-content: center;
@@ -315,16 +228,12 @@ section {
   height: auto;
   border-radius: 6px;
 }
-section#carte h2 {
-  text-align: center;
-  font-size: 2rem;
-  margin-bottom: 1.5rem;
-}
 
 /* === REGOLE & CONTATTI === */
 #regolamento ul {
   list-style: disc;
   padding-left: 1.5rem;
+  text-align: left;
 }
 
 #contatti a {
@@ -345,24 +254,8 @@ footer {
 
 /* === RESPONSIVE === */
 @media (max-width: 700px) {
-  #hero h1 {
-    font-size: 2.1rem;
-  }
-  .hero-btn {
-    font-size: 1rem;
-  }
-  nav a {
-    padding: 0.4rem 0.8rem;
-  }
-}
-
-main {
-  max-width: 1100px;
-  margin: 0 auto;
-  padding: 2rem 1rem 4rem;
-  overflow-x: hidden;
-}
-html, body {
-  max-width: 100vw;
-  overflow-x: hidden !important;
+  #hero h1 { font-size: 1.8rem; }
+  .hero-logo { width: 110px; }
+  .hero-btn { font-size: 0.95rem; }
+  nav a { padding: 0.4rem 0.8rem; }
 }
