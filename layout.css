@@ -109,6 +109,7 @@ html, body {
   align-items: center;
   text-align: center;
   padding: 3rem 1rem;
+  padding-top: 80px; /* per non sovrapporsi alla navbar */
   margin: 0;
   background: radial-gradient(circle at 30% 50%, #eaf0ff, #f7f8fb, #e6ecff);
   background-size: 200% 200%;
