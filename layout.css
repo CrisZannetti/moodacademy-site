@@ -114,22 +114,19 @@ html, body {
 /* === HERO SECTION (FULL WIDTH) === */
 #hero {
   position: relative;
-  width: 100vw;
+  width: 100vw !important;
   min-height: 85vh;
   display: flex;
   justify-content: center;
   align-items: center;
   text-align: center;
   overflow: hidden;
-  margin: 0;
+  margin: 0 !important;
   padding: 0;
   box-sizing: border-box;
+  left: 0 !important;
+  right: 0 !important;
   
-  /* Forza full-width uscendo dal contenitore */
-  margin-left: calc(-50vw + 50%);
-  margin-right: calc(-50vw + 50%);
-
-  /* Gradiente grigio neutro */
   background: radial-gradient(
     circle at 40% 50%,
     #e2e3e7 0%,
