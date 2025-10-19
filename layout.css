@@ -1,13 +1,12 @@
-/* === LAYOUT CSS — Mood Academy TCG === */
-/* Versione 1.0 - compatibile con access.js & cards.js */
+--- a/layout.css
++++ b/layout.css
+@@ -1,6 +1,12 @@
+ /* === LAYOUT CSS — Mood Academy TCG === */
+ /* Versione 1.0 - compatibile con access.js & cards.js */
 
 :root {
-  --accent: #3b5bdb;
-  --accent-light: #748ffc;
-  --bg: #f7f8fb;
-  --text: #1e1e1e;
-  --soft: #eceff7;
-  --card-bg: #fff;
+  --container-max: 920px;
+  --padding-x: 1rem;
 }
 
 /* Reset base */
@@ -31,11 +30,11 @@ html, body {
   left: 50%;
   transform: translateX(-50%);
   width: 100%;
-  max-width: 1300px; /* centrata e non più a piena larghezza */
+  max-width: var(--container-max);
   height: 65px;
   background: rgba(255, 255, 255, 0.85);
   -webkit-backdrop-filter: blur(8px);
-  backdrop-filter: none; /* evita crash desktop */
+  backdrop-filter: blur(8px);
   border-bottom: 1px solid rgba(0, 0, 0, 0.05);
   display: flex;
   justify-content: space-between;
@@ -255,14 +254,21 @@ nav a:hover {
 
 /* === SECTIONS === */
 main {
-  max-width: 1100px;
+  max-width: var(--container-max);
   margin: 0 auto;
-  padding: 2rem 1rem 4rem;
+  padding: 2rem var(--padding-x) 4rem;
+  overflow-x: hidden;
 }
-  
-section {
-  margin-bottom: 3rem;
 
+section {
+  max-width: var(--container-max);
+  margin: 0 auto 3rem;
+  padding-inline: var(--padding-x);
+  box-sizing: border-box;
+}
+
+header nav a {
+  text-decoration: none;
 }
 
 /* === CARTE === */
