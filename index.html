@@ -6,11 +6,11 @@
   <title>Mood Academy TCG</title>
   <meta name="description" content="Il gioco di carte collezionabili dove il Mood influenza la partita.">
   <link rel="icon" href="/assets/favicon.png">
-  <link rel="stylesheet" href="style.css">
+  <!-- Ordine corretto: prima layout (struttura), poi style (effetti) -->
   <link rel="stylesheet" href="layout.css">
-  <script defer src="access.js"></script>
+  <link rel="stylesheet" href="style.css">
   <style>
-    :root { --maxw: 1000px; }
+    :root { --maxw: 920px; } /* allineamento temporaneo al target; poi si sposta in layout.css */
     *, *::before, *::after { box-sizing: border-box; }
     body { margin:0; font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif; line-height:1.6; }
     a { color: inherit; }
@@ -140,14 +140,52 @@
       <p>Email: <a href="mailto:moodacademy@yahoo.com">moodacademy@yahoo.com</a></p>
     </section>
   </main>
+  
+<!-- === NUOVE SEZIONI CINEMATICHE === -->
+
+<section class="section-art" id="about">
+  <img src="assets/art/left1.png" alt="" class="art-left">
+  <img src="assets/art/right1.png" alt="" class="art-right">
+  
+  <div class="content-box">
+    <h2>About the Game</h2>
+    <p><strong>Mood Academy</strong> è un innovativo gioco di carte collezionabili con oltre <strong>150 carte</strong> disponibili, che unisce tattica, strategia e storytelling accademico.</p>
+    <p>Ogni mazzo rappresenta una Classe Universitaria e la partita si vince accumulando <strong>60 CFU</strong> prima dell’avversario.</p>
+  </div>
+</section>
+
+<section class="section-art" id="modes">
+  <img src="assets/art/left2.png" alt="" class="art-left">
+  <img src="assets/art/right2.png" alt="" class="art-right">
+  
+  <div class="content-box">
+    <h2>1vs1 / 2vs2</h2>
+    <p>Una delle caratteristiche più innovative di <strong>Mood</strong> è il supporto nativo per il formato <strong>2 contro 2</strong>, una modalità che trasforma completamente le dinamiche competitive del gioco.</p>
+    <p>Ogni team condivide l’obiettivo di raggiungere 60 CFU ma gioca con un proprio mazzo da 40 carte, coordinando combo e sinergie tra le diverse <em>Classi</em> di carte.</p>
+  </div>
+</section>
+
+<section class="section-art" id="phases">
+  <img src="assets/art/left3.png" alt="" class="art-left">
+  <img src="assets/art/right3.png" alt="" class="art-right">
+  
+  <div class="content-box">
+    <h2>Game Phases</h2>
+    <p><strong>Draw Phase</strong> – Inizia il turno pescando dal Main Deck.<br>
+       <strong>Inter Phase</strong> – Gioca 1 Amico o 1 Studente.<br>
+       <strong>Mood Phase</strong> – Assegna la carta Mood pescata.<br>
+       <strong>Task Phase</strong> – Attiva Task, Soft Skill o Union.<br>
+       <strong>End Phase</strong> – Concludi il turno e passa all’avversario.</p>
+  </div>
+</section>
 
   <footer>
     © 2025 Mood Academy TCG • Sito statico su GitHub Pages • Mobile-first
   </footer>
 
-  <!-- 🔥 Script di accesso -->
+  <!-- 🔥 Script di accesso (singola istanza, versionata) -->
   <script defer src="access.js?v=17"></script>
-
+  
   <!-- === POPUP 3D CARTA === -->
 <div id="cardPopup" class="popup">
   <span class="close-btn" id="closePopup">&times;</span>
