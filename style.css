@@ -293,3 +293,9 @@ button:hover {
   text-shadow: 0 0 4px rgba(255,255,255,0.9), 0 0 12px rgba(0,0,0,0.6);
   -webkit-text-stroke: 1px rgba(255,255,255,0.3);
 }
+/* FORZA HERO FULL WIDTH */
+#hero {
+  width: 100vw !important;
+  margin-left: calc(-50vw + 50%) !important;
+  margin-right: calc(-50vw + 50%) !important;
+}
