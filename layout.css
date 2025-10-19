@@ -1,8 +1,5 @@
---- a/layout.css
-+++ b/layout.css
-@@ -1,6 +1,12 @@
- /* === LAYOUT CSS — Mood Academy TCG === */
- /* Versione 1.0 - compatibile con access.js & cards.js */
+/* === LAYOUT CSS – Mood Academy TCG === */
+/* Versione 1.0 - compatibile con access.js & cards.js */
 
 :root {
   --container-max: 1180px;
@@ -17,7 +14,9 @@ body {
   margin: 0;
   overflow-x: hidden;
   transition: background 0.3s ease;
+  padding-top: 80px; /* offset per navbar fissa */
 }
+
 html, body {
   margin: 0;
   padding: 0;
@@ -34,7 +33,7 @@ html, body {
   transform: translateX(-50%);
   width: 100%;
   max-width: var(--container-max);
-  height: 80px; /* ← aumentata */
+  height: 80px;
   background: rgba(255, 255, 255, 0.9);
   -webkit-backdrop-filter: blur(10px);
   backdrop-filter: blur(10px);
@@ -52,12 +51,12 @@ html, body {
   align-items: center;
   gap: 0.8rem;
   font-weight: 700;
-  font-size: 1.3rem; /* testo più grande */
+  font-size: 1.3rem;
   color: #111;
 }
 
 .nav-logo img {
-  height: 48px; /* ↑ da 38px */
+  height: 48px;
   width: auto;
   border-radius: 8px;
 }
@@ -112,7 +111,7 @@ html, body {
   }
 }
 
-/* === HERO SECTION (aggiornata full-width) === */
+/* === HERO SECTION (FULL WIDTH) === */
 #hero {
   position: relative;
   width: 100vw;
@@ -130,17 +129,7 @@ html, body {
   margin-left: calc(-50vw + 50%);
   margin-right: calc(-50vw + 50%);
 
-  background: radial-gradient(
-    circle at 40% 50%,
-    #e2e3e7 0%,
-    #d4d6dc 35%,
-    #bfc1c7 70%,
-    #a6a8ae 100%
-  );
-  background-size: 200% 200%;
-  animation: heroFlow 15s ease-in-out infinite alternate;
-}
-  /* nuovo gradiente grigio neutro */
+  /* Gradiente grigio neutro */
   background: radial-gradient(
     circle at 40% 50%,
     #e2e3e7 0%,
@@ -209,8 +198,7 @@ html, body {
   background: linear-gradient(90deg, #6f6f6f, #4a4a4a);
 }
 
-
-/* Responsive */
+/* Responsive hero */
 @media (max-width: 700px) {
   #hero {
     min-height: 50vh;
@@ -268,6 +256,10 @@ nav a:hover {
   border-color: var(--accent-light);
 }
 
+header nav a {
+  text-decoration: none;
+}
+
 /* === SECTIONS === */
 main {
   max-width: var(--container-max);
@@ -283,13 +275,21 @@ section {
   box-sizing: border-box;
 }
 
-header nav a {
-  text-decoration: none;
-}
-
 /* === CARTE === */
 .carte-grid {
   margin-top: 1.5rem;
+}
+
+.grid {
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+}
+
+.card {
+  border: 1px solid #eee;
+  border-radius: .75rem;
+  padding: 1rem;
 }
 
 .anim-card {
@@ -341,27 +341,12 @@ footer {
 
 /* === RESPONSIVE === */
 @media (max-width: 700px) {
-  #hero h1 {
-    font-size: 2.1rem;
-  }
   .hero-btn {
     font-size: 1rem;
   }
   nav a {
     padding: 0.4rem 0.8rem;
   }
-}
-
-main {
-  max-width: 920px;
-  margin: 0 auto;
-  padding: 2rem 1rem 4rem;
-  overflow-x: hidden;
-}
-
-/* === OFFSET PER NAVBAR FISSA === */
-body {
-  padding-top: 80px; /* uguale all’altezza .navbar */
 }
 
 @media (min-width: 1440px) {
@@ -387,7 +372,7 @@ body {
 .section-art .content-box {
   position: relative;
   z-index: 2;
-  max-width: 1200px; /* più largo rispetto alla versione precedente */
+  max-width: 1200px;
   width: 85%;
   background: rgba(0, 0, 0, 0.55);
   border-radius: 16px;
@@ -464,7 +449,7 @@ body {
 }
 
 .section-zigzag:nth-child(even) {
-  flex-direction: row-reverse; /* inverte immagine e testo */
+  flex-direction: row-reverse;
 }
 
 .section-zigzag img {
