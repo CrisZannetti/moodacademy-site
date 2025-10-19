@@ -372,3 +372,13 @@ button:hover {
   box-shadow: 0 0 35px rgba(255, 255, 255, 0.35);
   transition: box-shadow 0.4s ease;
 }
+/* === MIGLIOR VISIBILITÀ TITOLO HERO === */
+#hero h1 {
+  font-size: 2.4rem;
+  font-weight: 700;
+  color: #fff;
+  text-shadow:
+    0 0 4px rgba(255,255,255,0.9),
+    0 0 12px rgba(0,0,0,0.6);
+  -webkit-text-stroke: 1px rgba(255,255,255,0.3);
+}
