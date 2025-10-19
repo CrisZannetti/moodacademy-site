@@ -436,3 +436,64 @@ body {
   }
 }
 
+/* === SEZIONI A ZIG-ZAG CON IMMAGINI E TESTO === */
+.section-zigzag {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  min-height: 100vh;
+  padding: 4rem 5%;
+  box-sizing: border-box;
+  background: #0d0d0d;
+  color: #fff;
+  gap: 4rem;
+}
+
+.section-zigzag:nth-child(even) {
+  flex-direction: row-reverse; /* inverte immagine e testo */
+}
+
+.section-zigzag img {
+  width: 45%;
+  height: auto;
+  border-radius: 20px;
+  object-fit: cover;
+  box-shadow: 0 0 30px rgba(0,0,0,0.4);
+  transition: transform 0.5s ease, box-shadow 0.5s ease;
+}
+
+.section-zigzag img:hover {
+  transform: scale(1.03);
+  box-shadow: 0 0 40px rgba(255,255,255,0.15);
+}
+
+.section-zigzag .text-box {
+  width: 50%;
+  max-width: 650px;
+}
+
+.section-zigzag .text-box h2 {
+  font-size: 2.2rem;
+  margin-bottom: 1rem;
+  text-shadow: 0 0 10px rgba(255,255,255,0.25);
+}
+
+.section-zigzag .text-box p {
+  font-size: 1.15rem;
+  line-height: 1.8;
+  color: #ddd;
+}
+
+/* === RESPONSIVE === */
+@media (max-width: 900px) {
+  .section-zigzag {
+    flex-direction: column;
+    text-align: center;
+    gap: 2rem;
+  }
+  .section-zigzag img, 
+  .section-zigzag .text-box {
+    width: 100%;
+  }
+}
