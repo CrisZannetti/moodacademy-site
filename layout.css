@@ -494,3 +494,7 @@ footer {
     width: 100%;
   }
 }
+/* FORZA HERO FULL WIDTH - FIX FINALE */
+#hero {
+  max-width: none !important;
+}
