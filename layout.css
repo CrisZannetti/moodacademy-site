@@ -353,3 +353,86 @@ body {
     --container-max: 1320px;
   }
 }
+
+/* === SEZIONI CON ARTWORK LATERALI === */
+.section-art {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  overflow: hidden;
+  min-height: 100vh;
+  background: #0d0d0d;
+  color: #fff;
+  padding: 4rem 1rem;
+  box-sizing: border-box;
+}
+
+.section-art .content-box {
+  position: relative;
+  z-index: 2;
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 2.5rem 2rem;
+  background: rgba(0, 0, 0, 0.55);
+  border-radius: 18px;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 0 25px rgba(0,0,0,0.35);
+  border: 1px solid rgba(255,255,255,0.1);
+}
+
+.section-art .content-box h2 {
+  font-size: 2.2rem;
+  margin-bottom: 1rem;
+  color: #fff;
+  text-shadow: 0 0 12px rgba(255,255,255,0.15);
+}
+
+.section-art .content-box p {
+  font-size: 1.1rem;
+  line-height: 1.8;
+  color: #e7e7e7;
+}
+
+/* immagini laterali */
+.section-art img.art-left,
+.section-art img.art-right {
+  position: absolute;
+  top: 0;
+  width: 40%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0.85;
+  z-index: 1;
+  filter: brightness(0.8);
+  transition: transform 8s ease-in-out, opacity 0.5s ease;
+}
+
+/* Parallax leggero */
+.section-art:hover img.art-left {
+  transform: translateX(-10px);
+}
+.section-art:hover img.art-right {
+  transform: translateX(10px);
+}
+
+/* Posizionamento */
+.section-art img.art-left {
+  left: 0;
+}
+.section-art img.art-right {
+  right: 0;
+}
+
+/* Responsive: nasconde artwork ai lati su mobile */
+@media (max-width: 768px) {
+  .section-art img.art-left,
+  .section-art img.art-right {
+    display: none;
+  }
+  .section-art .content-box {
+    background: rgba(0,0,0,0.7);
+    padding: 1.5rem;
+  }
+}
