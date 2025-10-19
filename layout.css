@@ -112,23 +112,22 @@ html, body {
 }
 
 /* === HERO SECTION (FULL WIDTH) === */
-/* === HERO SECTION (FULL WIDTH) === */
 #hero {
   position: relative;
-  width: 100vw !important;
+  width: 100vw;
   min-height: 85vh;
   display: flex;
   justify-content: center;
   align-items: center;
   text-align: center;
   overflow: hidden;
-  margin: 0 !important;
+  margin: 0;
   padding: 0;
   box-sizing: border-box;
   
-  /* 🔥 QUESTE SONO LE RIGHE FONDAMENTALI CHE MANCANO */
-  margin-left: calc(-50vw + 50%) !important;
-  margin-right: calc(-50vw + 50%) !important;
+  /* Formula corretta per full-width */
+  margin-left: calc(50% - 50vw);
+  margin-right: calc(50% - 50vw);
   
   background: radial-gradient(
     circle at 40% 50%,
