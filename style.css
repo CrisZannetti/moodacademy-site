@@ -129,81 +129,72 @@ button:hover {
 /* FIX rimosso: causava override permanenti su layout e scroll */
 .error { color:#ff7b7b; font-size:.9rem; }
 
-/* === HERO SECTION === */
+/* === HERO SECTION — full width & grigio sfocato === */
 #hero {
   position: relative;
-  min-height: 45vh;
+  width: 100vw;
+  min-height: 85vh;
   display: flex;
-  align-items: center;
   justify-content: center;
+  align-items: center;
   overflow: hidden;
   text-align: center;
-  color: #fff;
-  background: linear-gradient(120deg, #0d0d16, #1b1b2e);
   box-sizing: border-box;
+  color: #111;
+  background: radial-gradient(circle at 40% 50%, #e2e3e7 0%, #d4d6dc 35%, #bfc1c7 70%, #a6a8ae 100%);
 }
 
-/* === HERO FLUID BACKGROUND === */
+/* === HERO BACKGROUND — immagine soft === */
 .hero-bg {
   position: absolute;
   inset: 0;
-  background: radial-gradient(circle at 20% 20%, rgba(0,180,255,0.3), transparent 60%),
-              radial-gradient(circle at 80% 60%, rgba(255,140,0,0.25), transparent 70%),
-              radial-gradient(circle at 50% 80%, rgba(120,60,255,0.25), transparent 70%);
-  filter: blur(60px);
-  transform: scale(1.2);
-  animation: fluidMove 20s ease-in-out infinite alternate;
-  z-index: 0;
+  background: url("assets/banner.png") center/cover no-repeat;
+  filter: blur(10px) brightness(0.8) saturate(0.9);
+  opacity: 0.6;
+  z-index: 1;
+  transform: scale(1.05);
 }
 
-@keyframes fluidMove {
-  0% {
-    transform: translate(0, 0) scale(1.2);
-    background-position: 20% 20%, 80% 60%, 50% 80%;
-  }
-  50% {
-    transform: translate(-2%, -3%) scale(1.25);
-    background-position: 30% 30%, 70% 70%, 55% 70%;
-  }
-  100% {
-    transform: translate(2%, 3%) scale(1.2);
-    background-position: 15% 25%, 85% 65%, 50% 85%;
-  }
-}
-
+/* === HERO CONTENT === */
 .hero-content {
   position: relative;
-  z-index: 1;
-  animation: fadeIn 2s ease-in-out forwards;
-  opacity: 0;
-}
-
-@keyframes fadeIn {
-  to { opacity: 1; transform: translateY(0); }
+  z-index: 2;
+  color: #111;
+  text-shadow: 0 1px 3px rgba(255, 255, 255, 0.8);
+  max-width: 900px;
+  padding: 2rem;
 }
 
 .hero-logo {
-  width: 220px;
-  margin-bottom: 1.5rem;
-  filter: drop-shadow(0 0 10px rgba(255,255,255,0.4));
+  width: 160px;
+  margin-bottom: 1.2rem;
+  filter: drop-shadow(0 0 6px rgba(0,0,0,0.2));
+}
+
+#hero h1 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #111;
+  margin-bottom: 1rem;
 }
 
 .hero-btn {
   display: inline-block;
   margin-top: 1.5rem;
   padding: 0.9rem 1.5rem;
-  border-radius: 8px;
-  background: linear-gradient(135deg, #00b4ff, #ff8a00);
+  border-radius: 10px;
+  background: linear-gradient(90deg, #6f6f6f, #4a4a4a);
   color: #fff;
   text-decoration: none;
-  font-weight: bold;
-  transition: transform 0.2s ease, box-shadow 0.3s ease;
+  font-weight: 600;
+  transition: transform 0.3s ease, background 0.3s ease;
 }
 
 .hero-btn:hover {
-  transform: scale(1.08);
-  box-shadow: 0 0 20px rgba(255,255,255,0.4);
+  transform: scale(1.05);
+  background: linear-gradient(90deg, #4a4a4a, #6f6f6f);
 }
+
 /* === Effetto FOIL dinamico === */
 .anim-card {
   position: relative;
