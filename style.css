@@ -1,4 +1,135 @@
-/* === HERO SECTION — versione scura restaurata === */
+/* === Reset spostato in layout.css === */
+/* Evitiamo di ridefinire html/body per non generare conflitti */
+
+body {
+  font-family: system-ui, Arial, sans-serif;
+  color: #111;
+}
+
+/* === Banner di accesso === */
+#access-banner {
+  position:fixed;
+  inset:0;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  background:url('assets/banner.png') center/cover no-repeat;
+  z-index:9999;
+}
+
+.overlay {
+  position:absolute;
+  inset:0;
+  background:linear-gradient(
+    120deg,
+    rgba(25,25,35,0.65),
+    rgba(70,80,95,0.65)
+  );
+  background-size:200% 200%;
+  animation:moveGrad 20s ease-in-out infinite alternate;
+}
+
+@keyframes moveGrad {
+  0% { background-position:0% 50%; }
+  100% { background-position:100% 50%; }
+}
+
+.access-box {
+  position:relative;
+  z-index:2;
+  text-align:center;
+  padding:2rem;
+  border-radius:1rem;
+}
+
+.glass {
+  backdrop-filter:blur(16px);
+  background:rgba(30,30,35,0.35);
+  border:1px solid rgba(255,255,255,0.2);
+  box-shadow:0 8px 24px rgba(0,0,0,0.45);
+}
+
+.logo {
+  width:200px;
+  margin-bottom:1rem;
+  border-radius:12px;
+  box-shadow:0 8px 24px rgba(0,0,0,0.3);
+}
+
+/* === FORM === */
+form {
+  display:flex;
+  flex-direction:column;
+  gap:0.9rem;
+  max-width:280px;
+  margin:auto;
+}
+
+input {
+  background:rgba(255,255,255,0.18);
+  color:#fff;
+  border:1px solid rgba(255,255,255,0.7);
+  border-radius:8px;
+  padding:0.8rem;
+  font-weight:600;
+  font-size:1rem;
+  box-shadow:0 0 10px rgba(0,0,0,0.25);
+  transition:all 0.25s ease;
+}
+
+input::placeholder {
+  color:rgba(255,255,255,0.95);
+  font-weight:500;
+}
+
+input:focus {
+  background:rgba(255,255,255,0.3);
+  border-color:#fff;
+  outline:none;
+  box-shadow:0 0 14px rgba(255,255,255,0.5),
+             0 0 20px rgba(30,120,255,0.3);
+}
+
+/* === Mood gradient border === */
+input:focus-visible {
+  border-image: linear-gradient(45deg, #00b4ff, #ff8a00) 1;
+  border-width:2px;
+}
+
+/* === BUTTON === */
+button {
+  background:linear-gradient(135deg,#ffffff,#e5e5e5);
+  color:#111;
+  font-weight:700;
+  letter-spacing:0.4px;
+  border:none;
+  border-radius:8px;
+  padding:0.9rem;
+  cursor:pointer;
+  box-shadow:0 4px 14px rgba(0,0,0,0.3);
+  transition:transform 0.2s ease,box-shadow 0.3s ease;
+}
+
+button:hover {
+  transform:scale(1.05);
+  box-shadow:0 6px 18px rgba(255,255,255,0.4);
+}
+
+/* === Animazione fade-out === */
+.fadeOut {
+  animation:fadeout 2.5s forwards;
+}
+
+@keyframes fadeout {
+  0% { opacity:1; }
+  80% { opacity:0; }
+  100% { opacity:0; visibility:hidden; display:none; }
+}
+
+/* FIX rimosso: causava override permanenti su layout e scroll */
+.error { color:#ff7b7b; font-size:.9rem; }
+
+/* === HERO SECTION — full width & grigio sfocato === */
 #hero {
   position: relative;
   width: 100%;
@@ -8,73 +139,235 @@
   align-items: center;
   overflow: hidden;
   text-align: center;
-  color: #fff;
-  background: linear-gradient(120deg, #0d0d16, #1b1b2e);
   box-sizing: border-box;
+  color: #111;
+  background: linear-gradient(180deg, #d8d8d8, #bfc1c7 60%, #a6a8ae 100%);
 }
 
-/* Sfondo fluido con bagliori blu e arancio */
 .hero-bg {
   position: absolute;
   inset: 0;
-  background:
-    radial-gradient(circle at 20% 20%, rgba(0,180,255,0.3), transparent 60%),
-    radial-gradient(circle at 80% 60%, rgba(255,140,0,0.25), transparent 70%),
-    radial-gradient(circle at 50% 80%, rgba(120,60,255,0.25), transparent 70%);
-  filter: blur(60px);
-  transform: scale(1.2);
-  animation: heroFlow 20s ease-in-out infinite alternate;
-  z-index: 0;
+  background: url("assets/banner.png") center/cover no-repeat;
+  filter: blur(18px) brightness(0.7) contrast(0.9);
+  opacity: 0.55;
+  z-index: 1;
+  transform: scale(1.05);
 }
 
-@keyframes heroFlow {
-  0% { transform: translate(0, 0) scale(1.2); }
-  50% { transform: translate(-2%, -3%) scale(1.25); }
-  100% { transform: translate(2%, 3%) scale(1.2); }
-}
-
-/* Contenuto principale hero */
 .hero-content {
   position: relative;
-  z-index: 1;
-  animation: fadeIn 2s ease-in-out forwards;
-  opacity: 0;
+  z-index: 2;
+  color: #111;
+  text-shadow: 0 1px 3px rgba(255,255,255,0.85);
   max-width: 900px;
-  padding: 2rem;
-}
-
-@keyframes fadeIn {
-  to { opacity: 1; transform: translateY(0); }
+  padding: 3rem 1rem;
 }
 
 .hero-logo {
-  width: 220px;
+  width: 180px;
   margin-bottom: 1.5rem;
-  filter: drop-shadow(0 0 10px rgba(255,255,255,0.4));
+  filter: drop-shadow(0 0 6px rgba(0,0,0,0.25));
 }
 
 #hero h1 {
   font-size: 2.6rem;
   font-weight: 700;
-  color: #fff;
-  text-shadow:
-    0 0 4px rgba(255,255,255,0.9),
-    0 0 12px rgba(0,0,0,0.6);
+  color: #111;
+  margin-bottom: 1rem;
 }
 
 .hero-btn {
   display: inline-block;
   margin-top: 1.5rem;
-  padding: 0.9rem 1.5rem;
-  border-radius: 8px;
-  background: linear-gradient(135deg, #00b4ff, #ff8a00);
+  padding: 1rem 1.6rem;
+  border-radius: 10px;
+  background: linear-gradient(90deg, #555, #777);
   color: #fff;
   text-decoration: none;
-  font-weight: bold;
-  transition: transform 0.2s ease, box-shadow 0.3s ease;
+  font-weight: 600;
+  transition: transform 0.3s ease, background 0.3s ease;
 }
 
 .hero-btn:hover {
-  transform: scale(1.08);
-  box-shadow: 0 0 20px rgba(255,255,255,0.4);
+  transform: scale(1.05);
+  background: linear-gradient(90deg, #777, #555);
+}
+
+/* === Effetto FOIL dinamico === */
+.anim-card {
+  position: relative;
+  border-radius: 12px;
+  overflow: hidden;
+  transition: transform 0.3s ease;
+}
+
+.anim-card:hover {
+  transform: scale(1.05);
+}
+
+/* === Effetto foil solo intorno alla carta === */
+.anim-card {
+  position: relative;
+  border-radius: 12px;
+  overflow: visible; /* consente al bordo di uscire leggermente */
+  transition: transform 0.3s ease;
+}
+
+.anim-card:hover {
+  transform: scale(1.05);
+}
+
+/* Contenitore dell'immagine per il bordo foil */
+.carta-wrapper {
+  position: relative;
+  border-radius: 12px;
+  overflow: hidden;
+  display: inline-block;
+}
+
+.carta-wrapper::before {
+  content: "";
+  position: absolute;
+  inset: -3px;
+  border-radius: 14px;
+  background: linear-gradient(
+   120deg,
+    #00eaff,
+    #ff00c8,
+    #ffee00,
+    #00eaff
+);
+
+  background-size: 300% 300%;
+  animation: foilGlow 4s linear infinite;
+  opacity: 0;
+  z-index: 0;
+  mix-blend-mode: screen;
+  pointer-events: none;
+}
+
+.anim-card:hover .carta-wrapper::before {
+  opacity: 1;
+}
+
+.carta-svg {
+  position: relative;
+  z-index: 2;
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 12px;
+  transition: filter 0.4s ease, transform 0.4s ease;
+}
+
+.anim-card:hover .carta-svg {
+  filter: brightness(1.2) saturate(1.2);
+  transform: scale(1.03);
+}
+
+@keyframes foilGlow {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* === POPUP FULLSCREEN CARTA === */
+.popup {
+  display: none;
+  position: fixed;
+  z-index: 9999;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.85);
+  backdrop-filter: blur(4px);
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.popup.show {
+  display: flex !important; /* forza il popup visibile */
+  animation: fadeIn 0.3s ease-in-out;
+}
+
+.popup-caption {
+  color: #fff;
+  margin-top: 1rem;
+  font-size: 1.1rem;
+  text-align: center;
+  font-weight: 500;
+}
+
+.close-btn {
+  position: absolute;
+  top: 1rem;
+  right: 1.5rem;
+  font-size: 2rem;
+  color: #fff;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+.close-btn:hover {
+  transform: scale(1.2);
+  color: #ffb84d;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes zoomIn {
+  from { transform: scale(0.9); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
+}
+
+/* === POPUP CON EFFETTO 3D === */
+.card3d-container {
+  perspective: 1200px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 80vh;
+}
+
+.card3d {
+  width: 340px;
+  height: 480px;
+  position: relative;
+  transform-style: preserve-3d;
+  transition: transform 0.6s ease;
+  cursor: grab;
+}
+
+.popup-face {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  border-radius: 16px;
+  box-shadow: 0 12px 28px rgba(0,0,0,0.35);
+  transform: rotateY(0deg);
+  background: #111;
+}
+
+.popup-face.back {
+  transform: rotateY(180deg);
+  background: #000;
+}
+
+/* Glow elegante */
+.card3d:hover {
+  box-shadow: 0 0 35px rgba(255, 255, 255, 0.35);
+  transition: box-shadow 0.4s ease;
+}
+/* === MIGLIOR VISIBILITÀ TITOLO HERO === */
+#hero h1 {
+  font-size: 2.4rem;
+  font-weight: 700;
+  color: #fff;
+  text-shadow:
+    0 0 4px rgba(255,255,255,0.9),
+    0 0 12px rgba(0,0,0,0.6);
+  -webkit-text-stroke: 1px rgba(255,255,255,0.3);
 }
