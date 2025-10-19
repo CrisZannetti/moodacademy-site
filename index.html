@@ -6,11 +6,11 @@
   <title>Mood Academy TCG</title>
   <meta name="description" content="Il gioco di carte collezionabili dove il Mood influenza la partita.">
   <link rel="icon" href="/assets/favicon.png">
-  <link rel="stylesheet" href="style.css">
+  <!-- Ordine corretto: prima layout (struttura), poi style (effetti) -->
   <link rel="stylesheet" href="layout.css">
-  <script defer src="access.js"></script>
+  <link rel="stylesheet" href="style.css">
   <style>
-    :root { --maxw: 1000px; }
+    :root { --maxw: 920px; } /* allineamento temporaneo al target; poi si sposta in layout.css */
     *, *::before, *::after { box-sizing: border-box; }
     body { margin:0; font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif; line-height:1.6; }
     a { color: inherit; }
@@ -145,9 +145,9 @@
     © 2025 Mood Academy TCG • Sito statico su GitHub Pages • Mobile-first
   </footer>
 
-  <!-- 🔥 Script di accesso -->
+  <!-- 🔥 Script di accesso (singola istanza, versionata) -->
   <script defer src="access.js?v=17"></script>
-
+  
   <!-- === POPUP 3D CARTA === -->
 <div id="cardPopup" class="popup">
   <span class="close-btn" id="closePopup">&times;</span>
