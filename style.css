@@ -1,5 +1,5 @@
-/* === Reset spostato in layout.css === */
-/* Evitiamo di ridefinire html/body per non generare conflitti */
+/* === STYLE CSS â€" Mood Academy TCG === */
+/* Versione pulita - senza conflitti hero */
 
 body {
   font-family: system-ui, Arial, sans-serif;
@@ -8,213 +8,134 @@ body {
 
 /* === Banner di accesso === */
 #access-banner {
-  position:fixed;
-  inset:0;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  background:url('assets/banner.png') center/cover no-repeat;
-  z-index:9999;
+  position: fixed;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: url('assets/banner.png') center/cover no-repeat;
+  z-index: 9999;
 }
 
 .overlay {
-  position:absolute;
-  inset:0;
-  background:linear-gradient(
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
     120deg,
     rgba(25,25,35,0.65),
     rgba(70,80,95,0.65)
   );
-  background-size:200% 200%;
-  animation:moveGrad 20s ease-in-out infinite alternate;
+  background-size: 200% 200%;
+  animation: moveGrad 20s ease-in-out infinite alternate;
 }
 
 @keyframes moveGrad {
-  0% { background-position:0% 50%; }
-  100% { background-position:100% 50%; }
+  0% { background-position: 0% 50%; }
+  100% { background-position: 100% 50%; }
 }
 
 .access-box {
-  position:relative;
-  z-index:2;
-  text-align:center;
-  padding:2rem;
-  border-radius:1rem;
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  padding: 2rem;
+  border-radius: 1rem;
 }
 
 .glass {
-  backdrop-filter:blur(16px);
-  background:rgba(30,30,35,0.35);
-  border:1px solid rgba(255,255,255,0.2);
-  box-shadow:0 8px 24px rgba(0,0,0,0.45);
+  backdrop-filter: blur(16px);
+  background: rgba(30,30,35,0.35);
+  border: 1px solid rgba(255,255,255,0.2);
+  box-shadow: 0 8px 24px rgba(0,0,0,0.45);
 }
 
 .logo {
-  width:200px;
-  margin-bottom:1rem;
-  border-radius:12px;
-  box-shadow:0 8px 24px rgba(0,0,0,0.3);
+  width: 200px;
+  margin-bottom: 1rem;
+  border-radius: 12px;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.3);
 }
 
 /* === FORM === */
 form {
-  display:flex;
-  flex-direction:column;
-  gap:0.9rem;
-  max-width:280px;
-  margin:auto;
+  display: flex;
+  flex-direction: column;
+  gap: 0.9rem;
+  max-width: 280px;
+  margin: auto;
 }
 
 input {
-  background:rgba(255,255,255,0.18);
-  color:#fff;
-  border:1px solid rgba(255,255,255,0.7);
-  border-radius:8px;
-  padding:0.8rem;
-  font-weight:600;
-  font-size:1rem;
-  box-shadow:0 0 10px rgba(0,0,0,0.25);
-  transition:all 0.25s ease;
+  background: rgba(255,255,255,0.18);
+  color: #fff;
+  border: 1px solid rgba(255,255,255,0.7);
+  border-radius: 8px;
+  padding: 0.8rem;
+  font-weight: 600;
+  font-size: 1rem;
+  box-shadow: 0 0 10px rgba(0,0,0,0.25);
+  transition: all 0.25s ease;
 }
 
 input::placeholder {
-  color:rgba(255,255,255,0.95);
-  font-weight:500;
+  color: rgba(255,255,255,0.95);
+  font-weight: 500;
 }
 
 input:focus {
-  background:rgba(255,255,255,0.3);
-  border-color:#fff;
-  outline:none;
-  box-shadow:0 0 14px rgba(255,255,255,0.5),
+  background: rgba(255,255,255,0.3);
+  border-color: #fff;
+  outline: none;
+  box-shadow: 0 0 14px rgba(255,255,255,0.5),
              0 0 20px rgba(30,120,255,0.3);
 }
 
 /* === Mood gradient border === */
 input:focus-visible {
   border-image: linear-gradient(45deg, #00b4ff, #ff8a00) 1;
-  border-width:2px;
+  border-width: 2px;
 }
 
 /* === BUTTON === */
 button {
-  background:linear-gradient(135deg,#ffffff,#e5e5e5);
-  color:#111;
-  font-weight:700;
-  letter-spacing:0.4px;
-  border:none;
-  border-radius:8px;
-  padding:0.9rem;
-  cursor:pointer;
-  box-shadow:0 4px 14px rgba(0,0,0,0.3);
-  transition:transform 0.2s ease,box-shadow 0.3s ease;
+  background: linear-gradient(135deg,#ffffff,#e5e5e5);
+  color: #111;
+  font-weight: 700;
+  letter-spacing: 0.4px;
+  border: none;
+  border-radius: 8px;
+  padding: 0.9rem;
+  cursor: pointer;
+  box-shadow: 0 4px 14px rgba(0,0,0,0.3);
+  transition: transform 0.2s ease, box-shadow 0.3s ease;
 }
 
 button:hover {
-  transform:scale(1.05);
-  box-shadow:0 6px 18px rgba(255,255,255,0.4);
+  transform: scale(1.05);
+  box-shadow: 0 6px 18px rgba(255,255,255,0.4);
 }
 
 /* === Animazione fade-out === */
 .fadeOut {
-  animation:fadeout 2.5s forwards;
+  animation: fadeout 2.5s forwards;
 }
 
 @keyframes fadeout {
-  0% { opacity:1; }
-  80% { opacity:0; }
-  100% { opacity:0; visibility:hidden; display:none; }
+  0% { opacity: 1; }
+  80% { opacity: 0; }
+  100% { opacity: 0; visibility: hidden; display: none; }
 }
 
-/* FIX rimosso: causava override permanenti su layout e scroll */
-.error { color:#ff7b7b; font-size:.9rem; }
-
-/* === HERO SECTION — full width & grigio sfocato === */
-#hero {
-  position: relative;
-  width: 100vw;
-  min-height: 85vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  overflow: hidden;
-  text-align: center;
-  box-sizing: border-box;
-  color: #111;
-  background: radial-gradient(circle at 40% 50%, #e2e3e7 0%, #d4d6dc 35%, #bfc1c7 70%, #a6a8ae 100%);
+.error { 
+  color: #ff7b7b; 
+  font-size: .9rem; 
 }
 
-/* Sfondo fluido con bagliori blu e arancio */
-.hero-bg {
-  position: absolute;
-  inset: 0;
-  background:
-    radial-gradient(circle at 20% 20%, rgba(0,180,255,0.3), transparent 60%),
-    radial-gradient(circle at 80% 60%, rgba(255,140,0,0.25), transparent 70%),
-    radial-gradient(circle at 50% 80%, rgba(120,60,255,0.25), transparent 70%);
-  filter: blur(60px);
-  transform: scale(1.2);
-  animation: heroFlow 20s ease-in-out infinite alternate;
-  z-index: 0;
-}
-
-/* === HERO CONTENT === */
-.hero-content {
-  position: relative;
-  z-index: 2;
-  color: #111;
-  text-shadow: 0 1px 3px rgba(255, 255, 255, 0.8);
-  max-width: 900px;
-  padding: 2rem;
-}
-
-.hero-logo {
-  width: 160px;
-  margin-bottom: 1.2rem;
-  filter: drop-shadow(0 0 6px rgba(0,0,0,0.2));
-}
-
-#hero h1 {
-  font-size: 2.5rem;
-  font-weight: 700;
-  color: #111;
-  margin-bottom: 1rem;
-}
-
-.hero-btn {
-  display: inline-block;
-  margin-top: 1.5rem;
-  padding: 0.9rem 1.5rem;
-  border-radius: 10px;
-  background: linear-gradient(90deg, #6f6f6f, #4a4a4a);
-  color: #fff;
-  text-decoration: none;
-  font-weight: 600;
-  transition: transform 0.3s ease, background 0.3s ease;
-}
-
-.hero-btn:hover {
-  transform: scale(1.05);
-  background: linear-gradient(90deg, #4a4a4a, #6f6f6f);
-}
-
-/* === Effetto FOIL dinamico === */
+/* === Effetto FOIL sulle carte === */
 .anim-card {
   position: relative;
   border-radius: 12px;
-  overflow: hidden;
-  transition: transform 0.3s ease;
-}
-
-.anim-card:hover {
-  transform: scale(1.05);
-}
-
-/* === Effetto foil solo intorno alla carta === */
-.anim-card {
-  position: relative;
-  border-radius: 12px;
-  overflow: visible; /* consente al bordo di uscire leggermente */
+  overflow: visible;
   transition: transform 0.3s ease;
 }
 
@@ -236,13 +157,12 @@ button:hover {
   inset: -3px;
   border-radius: 14px;
   background: linear-gradient(
-   120deg,
+    120deg,
     #00eaff,
     #ff00c8,
     #ffee00,
     #00eaff
-);
-
+  );
   background-size: 300% 300%;
   animation: foilGlow 4s linear infinite;
   opacity: 0;
@@ -290,7 +210,7 @@ button:hover {
 }
 
 .popup.show {
-  display: flex !important; /* forza il popup visibile */
+  display: flex !important;
   animation: fadeIn 0.3s ease-in-out;
 }
 
@@ -366,13 +286,10 @@ button:hover {
   box-shadow: 0 0 35px rgba(255, 255, 255, 0.35);
   transition: box-shadow 0.4s ease;
 }
+
 /* === MIGLIOR VISIBILITÀ TITOLO HERO === */
 #hero h1 {
-  font-size: 2.4rem;
-  font-weight: 700;
   color: #fff;
-  text-shadow:
-    0 0 4px rgba(255,255,255,0.9),
-    0 0 12px rgba(0,0,0,0.6);
+  text-shadow: 0 0 4px rgba(255,255,255,0.9), 0 0 12px rgba(0,0,0,0.6);
   -webkit-text-stroke: 1px rgba(255,255,255,0.3);
 }
