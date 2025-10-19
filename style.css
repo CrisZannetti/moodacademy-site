@@ -1,12 +1,9 @@
-tml, body {
-  margin: 0;
-  padding: 0;
+/* === Reset spostato in layout.css === */
+/* Evitiamo di ridefinire html/body per non generare conflitti */
+
+body {
   font-family: system-ui, Arial, sans-serif;
-  color: #111; /* testo visibile su bianco */
-  height: auto;
-  min-height: 100vh;
-  overflow: auto;
-  background: #fff;
+  color: #111;
 }
 
 /* === Banner di accesso === */
@@ -128,32 +125,22 @@ button:hover {
   80% { opacity:0; }
   100% { opacity:0; visibility:hidden; display:none; }
 }
-/* === FIX VISIBILITÀ E SCROLL SU GITHUB PAGES === */
-html, body {
-  height: auto !important;
-  min-height: 100vh !important;
-  overflow: auto !important;
-  opacity: 1 !important;
-  visibility: visible !important;
-  display: block !important;
-  background: #fff !important;
-}
 
-.error {
-  color:#ff7b7b;
-  font-size:.9rem;
-}
+/* FIX rimosso: causava override permanenti su layout e scroll */
+.error { color:#ff7b7b; font-size:.9rem; }
+
 /* === HERO SECTION === */
 #hero {
   position: relative;
-  height: 100vh;
+  min-height: 45vh;
   display: flex;
   align-items: center;
   justify-content: center;
   overflow: hidden;
-  color: #fff;
   text-align: center;
+  color: #fff;
   background: linear-gradient(120deg, #0d0d16, #1b1b2e);
+  box-sizing: border-box;
 }
 
 /* === HERO FLUID BACKGROUND === */
