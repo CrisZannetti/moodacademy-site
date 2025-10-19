@@ -125,7 +125,23 @@ html, body {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  
+  /* 🔥 AGGIUNGI QUESTE RIGHE PER IL FULL WIDTH */
+  left: 50%;
+  right: 50%;
+  margin-left: -50vw;
+  margin-right: -50vw;
 
+  background: radial-gradient(
+    circle at 40% 50%,
+    #e2e3e7 0%,
+    #d4d6dc 35%,
+    #bfc1c7 70%,
+    #a6a8ae 100%
+  );
+  background-size: 200% 200%;
+  animation: heroFlow 15s ease-in-out infinite alternate;
+}
   /* nuovo gradiente grigio neutro */
   background: radial-gradient(
     circle at 40% 50%,
