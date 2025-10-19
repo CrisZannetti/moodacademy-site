@@ -255,15 +255,13 @@ nav a:hover {
 
 /* === SECTIONS === */
 main {
-  max-width: 920px;
-  width: min(90%, 920px);
+  max-width: 1100px;
   margin: 0 auto;
   padding: 2rem 1rem 4rem;
 }
   
 section {
   margin-bottom: 3rem;
-  max-width: 900px;
 
 }
 
