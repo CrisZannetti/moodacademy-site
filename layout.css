@@ -126,11 +126,9 @@ html, body {
   padding: 0;
   box-sizing: border-box;
   
-  /* 🔥 AGGIUNGI QUESTE RIGHE PER IL FULL WIDTH */
-  left: 50%;
-  right: 50%;
-  margin-left: -50vw;
-  margin-right: -50vw;
+  /* Forza full-width uscendo dal contenitore */
+  margin-left: calc(-50vw + 50%);
+  margin-right: calc(-50vw + 50%);
 
   background: radial-gradient(
     circle at 40% 50%,
