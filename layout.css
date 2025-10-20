@@ -53,6 +53,8 @@ html, body {
   font-weight: 700;
   font-size: 1.3rem;
   color: #111;
+  text-decoration: none; /* ← aggiungi questa riga */
+  cursor: pointer; /* ← e questa */
 }
 
 .nav-logo img {
