@@ -123,108 +123,136 @@
     </section>
   </main>
 
-<!-- === SEZIONE INTERATTIVA CARTA CON SLIDER === -->
-<section style="display: flex; align-items: center; justify-content: center; gap: 4rem; padding: 4rem 2rem; background: #0d0d0d; color: white; flex-wrap: wrap;">
+<!-- === SEZIONE INTERATTIVA CARTE CON SLIDER === -->
+<section style="padding: 4rem 2rem; background: #0d0d0d; color: white;">
   
-  <!-- Comparison Slider -->
-  <div class="comparison-slider" style="position: relative; width: 100%; max-width: 400px; aspect-ratio: 5/7; overflow: hidden; border-radius: 20px; box-shadow: 0 10px 40px rgba(0,0,0,0.5); user-select: none;">
-    
-    <!-- Carta Definitiva (sotto, a destra) -->
-    <img src="assets/carte/carta-definitiva.png?v=1" alt="Carta Definitiva" style="position: absolute; width: 100%; height: 100%; object-fit: contain; display: block;">
-    
-    <!-- Carta Test (sopra, a sinistra) -->
-    <div class="carta-overlay" style="position: absolute; top: 0; left: 0; width: 50%; height: 100%; overflow: hidden;">
-      <img src="assets/carte/carta-test.png?v=1" alt="Carta Test" style="position: absolute; width: 400px; height: 100%; object-fit: contain; max-width: none;">
-    </div>
-    
-    <!-- Slider Handle -->
-    <div class="slider-handle" style="position: absolute; top: 0; left: 50%; width: 4px; height: 100%; background: white; cursor: ew-resize; z-index: 10; transform: translateX(-50%);">
-      <div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 40px; height: 40px; background: white; border-radius: 50%; box-shadow: 0 4px 12px rgba(0,0,0,0.3); display: flex; align-items: center; justify-content: center;">
-        <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
-          <path d="M7 5L2 10L7 15M13 5L18 10L13 15" stroke="#333" stroke-width="2" stroke-linecap="round"/>
-        </svg>
-      </div>
-    </div>
-    
-  </div>
-
-  <!-- Testo esplicativo -->
-  <div style="max-width: 500px;">
+  <!-- Titolo e descrizione sopra -->
+  <div style="text-align: center; max-width: 800px; margin: 0 auto 3rem;">
     <h2 style="font-size: 2.5rem; margin-bottom: 1rem;">Evoluzione delle Carte</h2>
-    <p style="font-size: 1.2rem; line-height: 1.8; margin-bottom: 1.5rem;">
-      Scorri il cursore per vedere come le nostre carte evolvono dal concept iniziale al design finale!
+    <p style="font-size: 1.2rem; line-height: 1.8; margin-bottom: 1rem;">
+      Scorri i cursori per vedere come le nostre carte evolvono dal concept iniziale al design finale!
     </p>
-    <ul style="font-size: 1.1rem; line-height: 2; list-style: none; padding: 0;">
+    <ul style="font-size: 1.1rem; line-height: 2; list-style: none; padding: 0; display: inline-block; text-align: left;">
       <li>✨ Dal prototipo alla versione finale</li>
       <li>🎨 Illustrazioni raffinate</li>
       <li>💎 Design curato nei minimi dettagli</li>
     </ul>
   </div>
+  
+  <!-- Container per le due carte GRANDI affiancate -->
+  <div style="display: flex; gap: 3rem; flex-wrap: wrap; justify-content: center; align-items: center; max-width: 1200px; margin: 0 auto;">
+    
+    <!-- CARTA 1 - Comparison Slider -->
+    <div class="comparison-slider" style="position: relative; width: 100%; max-width: 400px; aspect-ratio: 5/7; overflow: hidden; border-radius: 20px; box-shadow: 0 10px 40px rgba(0,0,0,0.5); user-select: none;">
+      
+      <!-- Carta Definitiva (sotto, a destra) -->
+      <img src="assets/carte/carta-definitiva.png?v=1" alt="Carta Definitiva" style="position: absolute; width: 100%; height: 100%; object-fit: contain; display: block;">
+      
+      <!-- Carta Test (sopra, a sinistra) -->
+      <div class="carta-overlay" style="position: absolute; top: 0; left: 0; width: 50%; height: 100%; overflow: hidden;">
+        <img src="assets/carte/carta-test.png?v=1" alt="Carta Test" style="position: absolute; width: 400px; height: 100%; object-fit: contain; max-width: none;">
+      </div>
+      
+      <!-- Slider Handle -->
+      <div class="slider-handle" style="position: absolute; top: 0; left: 50%; width: 4px; height: 100%; background: white; cursor: ew-resize; z-index: 10; transform: translateX(-50%);">
+        <div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 50px; height: 50px; background: white; border-radius: 50%; box-shadow: 0 4px 12px rgba(0,0,0,0.3); display: flex; align-items: center; justify-content: center;">
+          <svg width="24" height="24" viewBox="0 0 20 20" fill="none">
+            <path d="M7 5L2 10L7 15M13 5L18 10L13 15" stroke="#333" stroke-width="2" stroke-linecap="round"/>
+          </svg>
+        </div>
+      </div>
+    </div>
+
+    <!-- CARTA 2 - Comparison Slider -->
+    <div class="comparison-slider" style="position: relative; width: 100%; max-width: 400px; aspect-ratio: 5/7; overflow: hidden; border-radius: 20px; box-shadow: 0 10px 40px rgba(0,0,0,0.5); user-select: none;">
+      
+      <!-- Carta Definitiva 2 (sotto, a destra) -->
+      <img src="assets/carte/carta-definitiva-2.png?v=1" alt="Carta Definitiva 2" style="position: absolute; width: 100%; height: 100%; object-fit: contain; display: block;">
+      
+      <!-- Carta Test 2 (sopra, a sinistra) -->
+      <div class="carta-overlay" style="position: absolute; top: 0; left: 0; width: 50%; height: 100%; overflow: hidden;">
+        <img src="assets/carte/carta-test-2.png?v=1" alt="Carta Test 2" style="position: absolute; width: 400px; height: 100%; object-fit: contain; max-width: none;">
+      </div>
+      
+      <!-- Slider Handle -->
+      <div class="slider-handle" style="position: absolute; top: 0; left: 50%; width: 4px; height: 100%; background: white; cursor: ew-resize; z-index: 10; transform: translateX(-50%);">
+        <div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 50px; height: 50px; background: white; border-radius: 50%; box-shadow: 0 4px 12px rgba(0,0,0,0.3); display: flex; align-items: center; justify-content: center;">
+          <svg width="24" height="24" viewBox="0 0 20 20" fill="none">
+            <path d="M7 5L2 10L7 15M13 5L18 10L13 15" stroke="#333" stroke-width="2" stroke-linecap="round"/>
+          </svg>
+        </div>
+      </div>
+    </div>
+    
+  </div>
 
 </section>
 
 <script>
-// Script per il comparison slider
+// Script per TUTTI i comparison slider
 (function() {
-  const slider = document.querySelector('.comparison-slider');
-  const handle = document.querySelector('.slider-handle');
-  const overlay = document.querySelector('.carta-overlay');
-  const overlayImg = overlay.querySelector('img');
+  const sliders = document.querySelectorAll('.comparison-slider');
   
-  let isDragging = false;
-  
-  function updateSlider(x) {
-    const rect = slider.getBoundingClientRect();
-    const offsetX = x - rect.left;
-    const percentage = Math.max(0, Math.min(100, (offsetX / rect.width) * 100));
+  sliders.forEach((slider) => {
+    const handle = slider.querySelector('.slider-handle');
+    const overlay = slider.querySelector('.carta-overlay');
+    const overlayImg = overlay.querySelector('img');
     
-    overlay.style.width = percentage + '%';
-    handle.style.left = percentage + '%';
-    overlayImg.style.width = rect.width + 'px';
-  }
-  
-  // Mouse events
-  handle.addEventListener('mousedown', () => isDragging = true);
-  
-  document.addEventListener('mousemove', (e) => {
-    if (isDragging) {
-      updateSlider(e.clientX);
+    let isDragging = false;
+    
+    function updateSlider(x) {
+      const rect = slider.getBoundingClientRect();
+      const offsetX = x - rect.left;
+      const percentage = Math.max(0, Math.min(100, (offsetX / rect.width) * 100));
+      
+      overlay.style.width = percentage + '%';
+      handle.style.left = percentage + '%';
+      overlayImg.style.width = rect.width + 'px';
     }
-  });
-  
-  document.addEventListener('mouseup', () => isDragging = false);
-  
-  // Touch events per mobile
-  handle.addEventListener('touchstart', (e) => {
-    isDragging = true;
-    e.preventDefault();
-  });
-  
-  document.addEventListener('touchmove', (e) => {
-    if (isDragging) {
-      updateSlider(e.touches[0].clientX);
-    }
-  });
-  
-  document.addEventListener('touchend', () => isDragging = false);
-  
-  // Click diretto sullo slider
-  slider.addEventListener('click', (e) => {
-    if (e.target !== handle && !handle.contains(e.target)) {
-      updateSlider(e.clientX);
-    }
+    
+    // Mouse events
+    handle.addEventListener('mousedown', () => isDragging = true);
+    
+    document.addEventListener('mousemove', (e) => {
+      if (isDragging) {
+        updateSlider(e.clientX);
+      }
+    });
+    
+    document.addEventListener('mouseup', () => isDragging = false);
+    
+    // Touch events per mobile
+    handle.addEventListener('touchstart', (e) => {
+      isDragging = true;
+      e.preventDefault();
+    });
+    
+    document.addEventListener('touchmove', (e) => {
+      if (isDragging) {
+        updateSlider(e.touches[0].clientX);
+      }
+    });
+    
+    document.addEventListener('touchend', () => isDragging = false);
+    
+    // Click diretto sullo slider
+    slider.addEventListener('click', (e) => {
+      if (e.target !== handle && !handle.contains(e.target)) {
+        updateSlider(e.clientX);
+      }
+    });
   });
 })();
 </script>
 
 <style>
-@media (max-width: 768px) {
+@media (max-width: 900px) {
   .comparison-slider {
-    max-width: 300px !important;
+    max-width: 340px !important;
   }
 }
 </style>
-
+  
   <!-- === SEZIONI A ZIG-ZAG === -->
 
 <section class="section-zigzag" id="phase1">
