@@ -1,0 +1,473 @@
+<!doctype html>
+<html lang="it">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Cards - Mood Academy TCG</title>
+  <meta name="description" content="Esplora tutte le carte di Mood Academy TCG - Studenti, Amici, Mood, Task e Union.">
+  <link rel="icon" href="/assets/favicon.png">
+  <link rel="stylesheet" href="layout.css">
+  <link rel="stylesheet" href="style.css?v=3">
+  <style>
+    /* Stili specifici per la pagina cards */
+    .cards-hero {
+      position: relative;
+      width: 100vw;
+      min-height: 60vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      margin-left: calc(50% - 50vw);
+      margin-right: calc(50% - 50vw);
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      color: white;
+      overflow: hidden;
+    }
+
+    .cards-hero::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: url("assets/carte/back.svg") center/400px repeat;
+      opacity: 0.08;
+      animation: cardsBg 30s linear infinite;
+    }
+
+    @keyframes cardsBg {
+      0% { transform: translateX(0) translateY(0); }
+      100% { transform: translateX(-400px) translateY(-400px); }
+    }
+
+    .cards-hero-content {
+      position: relative;
+      z-index: 2;
+      padding: 2rem;
+    }
+
+    .cards-hero h1 {
+      font-size: 3rem;
+      margin-bottom: 0.5rem;
+      text-shadow: 0 2px 10px rgba(0,0,0,0.3);
+    }
+
+    .cards-hero p {
+      font-size: 1.3rem;
+      opacity: 0.95;
+    }
+
+    /* Filtri e Ricerca */
+    .cards-controls {
+      max-width: 1180px;
+      margin: 3rem auto 2rem;
+      padding: 0 1rem;
+    }
+
+    .search-box {
+      position: relative;
+      margin-bottom: 2rem;
+    }
+
+    .search-box input {
+      width: 100%;
+      max-width: 500px;
+      padding: 1rem 1rem 1rem 3rem;
+      border: 2px solid #e2e4ec;
+      border-radius: 12px;
+      font-size: 1rem;
+      transition: all 0.3s ease;
+      background: white;
+      color: #111;
+    }
+
+    .search-box input:focus {
+      outline: none;
+      border-color: #667eea;
+      box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+    }
+
+    .search-box::before {
+      content: "🔍";
+      position: absolute;
+      left: 1rem;
+      top: 50%;
+      transform: translateY(-50%);
+      font-size: 1.2rem;
+    }
+
+    /* Filtri categorie */
+    .filters {
+      display: flex;
+      gap: 0.8rem;
+      flex-wrap: wrap;
+      justify-content: center;
+      margin-bottom: 2rem;
+    }
+
+    .filter-btn {
+      padding: 0.7rem 1.5rem;
+      border: 2px solid #e2e4ec;
+      border-radius: 10px;
+      background: white;
+      color: #111;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .filter-btn:hover {
+      border-color: #667eea;
+      background: #f0f2ff;
+    }
+
+    .filter-btn.active {
+      background: #667eea;
+      color: white;
+      border-color: #667eea;
+    }
+
+    /* Contatore carte */
+    .cards-count {
+      text-align: center;
+      margin-bottom: 2rem;
+      font-size: 1.1rem;
+      color: #666;
+      font-weight: 500;
+    }
+
+    /* Grid carte */
+    .cards-gallery {
+      max-width: 1180px;
+      margin: 0 auto;
+      padding: 0 1rem 4rem;
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+      gap: 2rem;
+    }
+
+    .card-item {
+      opacity: 1;
+      transform: scale(1);
+      transition: opacity 0.3s ease, transform 0.3s ease;
+    }
+
+    .card-item.hidden {
+      display: none;
+    }
+
+    .card-item figcaption {
+      text-align: center;
+      margin-top: 0.8rem;
+      font-weight: 600;
+      color: #111;
+    }
+
+    .card-type {
+      display: block;
+      font-size: 0.9rem;
+      color: #666;
+      font-weight: 500;
+      margin-top: 0.3rem;
+    }
+
+    /* Messaggio "nessuna carta" */
+    .no-results {
+      display: none;
+      text-align: center;
+      padding: 4rem 2rem;
+      font-size: 1.2rem;
+      color: #999;
+    }
+
+    .no-results.show {
+      display: block;
+    }
+
+    @media (max-width: 768px) {
+      .cards-hero h1 {
+        font-size: 2rem;
+      }
+      
+      .cards-gallery {
+        grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+        gap: 1.5rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<!-- === NAVBAR FISSA === -->
+<nav class="navbar">
+  <a href="index.html" class="nav-logo">
+    <img src="assets/logo.png" alt="Mood Academy logo">
+    <span>Mood Academy</span>
+  </a>
+  <button class="menu-toggle" id="menuToggle">☰</button>
+  <div class="nav-links" id="navLinks">
+    <a href="play-mood-academy.html">Play</a>
+    <a href="cards.html">Cards</a>
+    <a href="news.html">News</a>
+    <a href="download.html">Download</a>
+    <a href="contatti.html">Contatti</a>
+  </div>
+</nav>
+
+<!-- === HERO CARDS === -->
+<section class="cards-hero">
+  <div class="cards-hero-content">
+    <h1>🎴 Galleria Carte</h1>
+    <p>Esplora tutte le carte di Mood Academy TCG</p>
+  </div>
+</section>
+
+<!-- === CONTROLLI: RICERCA + FILTRI === -->
+<div class="cards-controls">
+  <div class="search-box">
+    <input 
+      type="text" 
+      id="searchInput" 
+      placeholder="Cerca una carta per nome..."
+      autocomplete="off"
+    >
+  </div>
+
+  <div class="filters">
+    <button class="filter-btn active" data-filter="all">Tutte</button>
+    <button class="filter-btn" data-filter="studente">Studenti</button>
+    <button class="filter-btn" data-filter="amico">Amici</button>
+    <button class="filter-btn" data-filter="mood">Mood</button>
+    <button class="filter-btn" data-filter="task">Task</button>
+    <button class="filter-btn" data-filter="union">Union</button>
+  </div>
+
+  <div class="cards-count" id="cardsCount">
+    Mostrando <strong id="countNumber">12</strong> carte
+  </div>
+</div>
+
+<!-- === GALLERIA CARTE === -->
+<div class="cards-gallery" id="cardsGallery">
+  
+  <!-- STUDENTI -->
+  <figure class="card anim-card card-item" data-category="studente" data-name="bella">
+    <div class="carta-wrapper">
+      <img src="assets/carte/Bella.svg" alt="Bella" class="carta-svg">
+    </div>
+    <figcaption>
+      Bella
+      <span class="card-type">Studente - Scienze Naturalistiche</span>
+    </figcaption>
+  </figure>
+
+  <figure class="card anim-card card-item" data-category="studente" data-name="vale">
+    <div class="carta-wrapper">
+      <img src="assets/carte/Vale.svg" alt="Vale" class="carta-svg">
+    </div>
+    <figcaption>
+      Vale
+      <span class="card-type">Studente - Scienze Cognitive</span>
+    </figcaption>
+  </figure>
+
+  <figure class="card anim-card card-item" data-category="studente" data-name="soraya">
+    <div class="carta-wrapper">
+      <img src="assets/carte/Soraya.svg" alt="Soraya - Full Art" class="carta-svg">
+    </div>
+    <figcaption>
+      Soraya
+      <span class="card-type">Studente - Scienze Mediche (Full Art)</span>
+    </figcaption>
+  </figure>
+
+  <!-- AMICI -->
+  <figure class="card anim-card card-item" data-category="amico" data-name="laura">
+    <div class="carta-wrapper">
+      <img src="assets/carte/Laura.svg" alt="Laura" class="carta-svg">
+    </div>
+    <figcaption>
+      Laura
+      <span class="card-type">Amico - 3° anno</span>
+    </figcaption>
+  </figure>
+
+  <!-- PLACEHOLDER - Aggiungi altre carte qui seguendo lo stesso pattern -->
+  <figure class="card anim-card card-item" data-category="mood" data-name="felice">
+    <div class="carta-wrapper">
+      <img src="assets/carte/back.svg" alt="Mood: Felice" class="carta-svg">
+    </div>
+    <figcaption>
+      Felice
+      <span class="card-type">Mood Card</span>
+    </figcaption>
+  </figure>
+
+  <figure class="card anim-card card-item" data-category="mood" data-name="ansioso">
+    <div class="carta-wrapper">
+      <img src="assets/carte/back.svg" alt="Mood: Ansioso" class="carta-svg">
+    </div>
+    <figcaption>
+      Ansioso
+      <span class="card-type">Mood Card</span>
+    </figcaption>
+  </figure>
+
+  <figure class="card anim-card card-item" data-category="task" data-name="esame-orale">
+    <div class="carta-wrapper">
+      <img src="assets/carte/back.svg" alt="Task: Esame Orale" class="carta-svg">
+    </div>
+    <figcaption>
+      Esame Orale
+      <span class="card-type">Task Card</span>
+    </figcaption>
+  </figure>
+
+  <figure class="card anim-card card-item" data-category="task" data-name="progetto-gruppo">
+    <div class="carta-wrapper">
+      <img src="assets/carte/back.svg" alt="Task: Progetto di Gruppo" class="carta-svg">
+    </div>
+    <figcaption>
+      Progetto di Gruppo
+      <span class="card-type">Task Card</span>
+    </figcaption>
+  </figure>
+
+  <figure class="card anim-card card-item" data-category="union" data-name="study-group">
+    <div class="carta-wrapper">
+      <img src="assets/carte/back.svg" alt="Union: Study Group" class="carta-svg">
+    </div>
+    <figcaption>
+      Study Group
+      <span class="card-type">Union Card</span>
+    </figcaption>
+  </figure>
+
+  <figure class="card anim-card card-item" data-category="studente" data-name="marco">
+    <div class="carta-wrapper">
+      <img src="assets/carte/back.svg" alt="Marco" class="carta-svg">
+    </div>
+    <figcaption>
+      Marco
+      <span class="card-type">Studente - Informatica</span>
+    </figcaption>
+  </figure>
+
+  <figure class="card anim-card card-item" data-category="amico" data-name="giulia">
+    <div class="carta-wrapper">
+      <img src="assets/carte/back.svg" alt="Giulia" class="carta-svg">
+    </div>
+    <figcaption>
+      Giulia
+      <span class="card-type">Amico - 2° anno</span>
+    </figcaption>
+  </figure>
+
+  <figure class="card anim-card card-item" data-category="mood" data-name="motivato">
+    <div class="carta-wrapper">
+      <img src="assets/carte/back.svg" alt="Mood: Motivato" class="carta-svg">
+    </div>
+    <figcaption>
+      Motivato
+      <span class="card-type">Mood Card</span>
+    </figcaption>
+  </figure>
+
+</div>
+
+<!-- Messaggio "nessun risultato" -->
+<div class="no-results" id="noResults">
+  🔍 Nessuna carta trovata. Prova un'altra ricerca.
+</div>
+
+<!-- === FOOTER === -->
+<footer>
+  © 2025 Mood Academy TCG • Sito statico su GitHub Pages • Mobile-first
+</footer>
+
+<!-- === POPUP 3D CARTA === -->
+<div id="cardPopup" class="popup">
+  <span class="close-btn" id="closePopup">&times;</span>
+  <div class="card3d-container">
+    <div class="card3d">
+      <img id="popupFront" alt="Carta fronte" class="popup-face front">
+      <img id="popupBack" alt="Carta retro" class="popup-face back" src="assets/carte/back.svg">
+    </div>
+  </div>
+  <p id="popupCaption" class="popup-caption"></p>
+</div>
+
+<!-- === SCRIPTS === -->
+<script defer src="cards.js?v=1"></script>
+<script>
+// Menu toggle
+document.getElementById("menuToggle").addEventListener("click", () => {
+  document.getElementById("navLinks").classList.toggle("show");
+});
+
+// Sistema di filtri e ricerca
+(function() {
+  const filterButtons = document.querySelectorAll('.filter-btn');
+  const searchInput = document.getElementById('searchInput');
+  const cards = document.querySelectorAll('.card-item');
+  const countNumber = document.getElementById('countNumber');
+  const noResults = document.getElementById('noResults');
+
+  let currentFilter = 'all';
+
+  // Filtri categoria
+  filterButtons.forEach(btn => {
+    btn.addEventListener('click', () => {
+      // Aggiorna pulsante attivo
+      filterButtons.forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      
+      currentFilter = btn.dataset.filter;
+      filterCards();
+    });
+  });
+
+  // Ricerca per nome
+  searchInput.addEventListener('input', () => {
+    filterCards();
+  });
+
+  function filterCards() {
+    const searchTerm = searchInput.value.toLowerCase().trim();
+    let visibleCount = 0;
+
+    cards.forEach(card => {
+      const category = card.dataset.category;
+      const name = card.dataset.name;
+      
+      // Controlla filtro categoria
+      const matchCategory = currentFilter === 'all' || category === currentFilter;
+      
+      // Controlla ricerca nome
+      const matchSearch = searchTerm === '' || name.includes(searchTerm);
+
+      if (matchCategory && matchSearch) {
+        card.classList.remove('hidden');
+        visibleCount++;
+      } else {
+        card.classList.add('hidden');
+      }
+    });
+
+    // Aggiorna contatore
+    countNumber.textContent = visibleCount;
+
+    // Mostra messaggio se nessun risultato
+    if (visibleCount === 0) {
+      noResults.classList.add('show');
+    } else {
+      noResults.classList.remove('show');
+    }
+  }
+
+  // Inizializza contatore
+  countNumber.textContent = cards.length;
+})();
+</script>
+
+</body>
+</html>
