@@ -8,6 +8,78 @@
   <link rel="icon" href="/assets/favicon.png">
   <link rel="stylesheet" href="layout.css">
   <link rel="stylesheet" href="style.css?v=3">
+  <style>
+/* Usa lo stesso stile hero di cards.html */
+.page-hero {
+  position: relative;
+  width: 100vw;
+  min-height: 55vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  overflow: hidden;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  margin-left: calc(50% - 50vw);
+  margin-right: calc(50% - 50vw);
+  max-width: none !important;
+}
+
+.page-hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: url("assets/banner.png") center/cover no-repeat;
+  filter: blur(10px) brightness(0.8) saturate(0.9);
+  opacity: 0.6;
+  z-index: 1;
+  transform: scale(1.05);
+}
+
+.page-hero::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(102, 126, 234, 0.75) 0%, rgba(118, 75, 162, 0.75) 100%);
+  z-index: 1;
+}
+
+.page-hero-content {
+  position: relative;
+  z-index: 2;
+  color: white;
+  padding: 2rem;
+  max-width: 900px;
+}
+
+.page-hero h1 {
+  font-size: 3rem;
+  font-weight: 700;
+  margin-bottom: 0.8rem;
+  text-shadow: 0 2px 10px rgba(0,0,0,0.4);
+  color: white;
+}
+
+.page-hero p {
+  font-size: 1.3rem;
+  opacity: 0.95;
+  color: white;
+}
+
+@media (max-width: 768px) {
+  .page-hero {
+    min-height: 40vh;
+  }
+  .page-hero h1 {
+    font-size: 2rem;
+  }
+  .page-hero p {
+    font-size: 1.1rem;
+  }
+}
+</style>
 </head>
 <body>
 
@@ -27,11 +99,13 @@
   </div>
 </nav>
 
-<!-- === HEADER PAGINA === -->
-<header style="margin-top: 80px; padding: 3rem 1rem; text-align: center; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white;">
-  <h1 style="font-size: 2.5rem; margin-bottom: 0.5rem;">Play Mood Academy</h1>
-  <p style="font-size: 1.2rem; opacity: 0.9;">Impara a giocare a Mood Academy TCG</p>
-</header>
+<!-- === HERO PLAY === -->
+<section class="page-hero">
+  <div class="page-hero-content">
+    <h1>🎮 Play Mood Academy</h1>
+    <p>Impara a giocare a Mood Academy TCG</p>
+  </div>
+</section>
 
 <!-- === SEZIONI FASI DEL GIOCO (ZIG-ZAG) === -->
 
