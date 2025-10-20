@@ -63,6 +63,11 @@ html, body {
   border-radius: 8px;
 }
 
+.nav-logo:hover {
+  opacity: 0.8;
+  transition: opacity 0.3s ease;
+}
+
 .nav-links {
   display: flex;
   gap: 1rem;
@@ -78,7 +83,7 @@ html, body {
 }
 
 .nav-links a:hover {
-  background: var(--accent-light);
+  background: #667eea;
   color: white;
 }
 
