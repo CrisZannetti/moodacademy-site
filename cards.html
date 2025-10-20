@@ -9,53 +9,77 @@
   <link rel="stylesheet" href="layout.css">
   <link rel="stylesheet" href="style.css?v=3">
   <style>
-    /* Stili specifici per la pagina cards */
-    .cards-hero {
-      position: relative;
-      width: 100vw;
-      min-height: 60vh;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      text-align: center;
-      margin-left: calc(50% - 50vw);
-      margin-right: calc(50% - 50vw);
-      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-      color: white;
-      overflow: hidden;
-    }
 
-    .cards-hero::before {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background: url("assets/carte/back.svg") center/400px repeat;
-      opacity: 0.08;
-      animation: cardsBg 30s linear infinite;
-    }
+   /* === HERO UNIFICATO === */
+.page-hero {
+  position: relative;
+  width: 100vw;
+  min-height: 55vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  overflow: hidden;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  margin-left: calc(50% - 50vw);
+  margin-right: calc(50% - 50vw);
+  max-width: none !important;
+}
 
-    @keyframes cardsBg {
-      0% { transform: translateX(0) translateY(0); }
-      100% { transform: translateX(-400px) translateY(-400px); }
-    }
+.page-hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: url("assets/banner.png") center/cover no-repeat;
+  filter: blur(10px) brightness(0.8) saturate(0.9);
+  opacity: 0.6;
+  z-index: 1;
+  transform: scale(1.05);
+}
 
-    .cards-hero-content {
-      position: relative;
-      z-index: 2;
-      padding: 2rem;
-    }
+.page-hero::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(102, 126, 234, 0.75) 0%, rgba(118, 75, 162, 0.75) 100%);
+  z-index: 1;
+}
 
-    .cards-hero h1 {
-      font-size: 3rem;
-      margin-bottom: 0.5rem;
-      text-shadow: 0 2px 10px rgba(0,0,0,0.3);
-    }
+.page-hero-content {
+  position: relative;
+  z-index: 2;
+  color: white;
+  padding: 2rem;
+  max-width: 900px;
+}
 
-    .cards-hero p {
-      font-size: 1.3rem;
-      opacity: 0.95;
-    }
+.page-hero h1 {
+  font-size: 3rem;
+  font-weight: 700;
+  margin-bottom: 0.8rem;
+  text-shadow: 0 2px 10px rgba(0,0,0,0.4);
+  color: white;
+}
 
+.page-hero p {
+  font-size: 1.3rem;
+  opacity: 0.95;
+  color: white;
+}
+
+@media (max-width: 768px) {
+  .page-hero {
+    min-height: 40vh;
+  }
+  .page-hero h1 {
+    font-size: 2rem;
+  }
+  .page-hero p {
+    font-size: 1.1rem;
+  }
+}
     /* Filtri e Ricerca */
     .cards-controls {
       max-width: 1180px;
