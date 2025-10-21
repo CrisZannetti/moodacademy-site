@@ -26,6 +26,15 @@
   margin-left: calc(50% - 50vw);
   margin-right: calc(50% - 50vw);
   max-width: none !important;
+  background: radial-gradient(
+  circle at 40% 50%,
+  #e2e3e7 0%,
+  #d4d6dc 35%,
+  #bfc1c7 70%,
+  #a6a8ae 100%
+);
+background-size: 200% 200%;
+animation: heroFlow 15s ease-in-out infinite alternate;
 }
 
 .page-hero::before {
@@ -37,14 +46,6 @@
   opacity: 0.6;
   z-index: 1;
   transform: scale(1.05);
-}
-
-.page-hero::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(135deg, rgba(102, 126, 234, 0.75) 0%, rgba(118, 75, 162, 0.75) 100%);
-  z-index: 1;
 }
 
 .page-hero-content {
@@ -217,6 +218,12 @@
         gap: 1.5rem;
       }
     }
+    
+  @keyframes heroFlow {
+  0% { background-position: 30% 50%; }
+  50% { background-position: 70% 60%; }
+  100% { background-position: 40% 40%; }
+}
   </style>
 </head>
 <body>
