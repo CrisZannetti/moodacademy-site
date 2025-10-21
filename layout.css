@@ -176,7 +176,7 @@ html, body {
 }
 
 .hero-logo {
-  width: 220px;
+  width: 300px;
   margin-bottom: 1rem;
   filter: drop-shadow(0 0 8px rgba(0,0,0,0.2));
 }
@@ -215,7 +215,7 @@ html, body {
   }
 
   .hero-logo {
-    width: 160px;
+    width: 200px;
   }
 }
 
