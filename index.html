@@ -258,16 +258,20 @@
   
   <!-- Video Container -->
   <div style="position: relative; width: 100%; max-width: 600px; aspect-ratio: 16/9; border-radius: 20px; overflow: hidden; box-shadow: 0 10px 40px rgba(0,0,0,0.15);">
-    <video 
-      autoplay 
-      muted 
-      loop 
-      playsinline 
-      style="width: 100%; height: 100%; object-fit: cover; display: block;"
-    >
-      <source src="assets/artwork-process.mp4" type="video/mp4">
-      Il tuo browser non supporta il tag video.
-    </video>
+   <video 
+     autoplay 
+     muted 
+     loop 
+     playsinline
+     preload="auto"
+     webkit-playsinline
+     x5-playsinline
+     style="width: 100%; height: 100%; object-fit: cover; display: block; background: #000;"
+   >
+     <source src="assets/artwork-process.mp4" type="video/mp4">
+     <source src="assets/artwork-process.webm" type="video/webm">
+     Il tuo browser non supporta il tag video.
+   </video>
   </div>
 
   <!-- Testo descrittivo -->
