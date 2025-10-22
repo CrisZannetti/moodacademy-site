@@ -136,7 +136,18 @@ animation: heroFlow 15s ease-in-out infinite alternate;
 
 <!-- FASE 2: INIZIARE LA PARTITA -->
 <section class="section-zigzag">
-  <img src="assets/art/iniziare-partita.png" alt="Iniziare la Partita">
+  <video 
+    autoplay 
+    muted 
+    loop 
+    playsinline
+    preload="auto"
+    style="width: 45%; height: auto; border-radius: 20px; object-fit: cover; box-shadow: 0 0 30px rgba(0,0,0,0.4);"
+  >
+    <source src="assets/art/preparazione-partita.mp4" type="video/mp4">
+    <source src="assets/art/preparazione-partita.webm" type="video/webm">
+    Il tuo browser non supporta il video.
+  </video>
   <div class="text-box">
     <h2>Iniziare la Partita</h2>
     <p>[INSERISCI QUI: Regole per iniziare la partita]</p>
