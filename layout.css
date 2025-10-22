@@ -472,6 +472,21 @@ footer {
   box-shadow: 0 0 40px rgba(255,255,255,0.15);
 }
 
+/* Stili video identici alle immagini */
+.section-zigzag video {
+  width: 45%;
+  height: auto;
+  border-radius: 20px;
+  object-fit: cover;
+  box-shadow: 0 0 30px rgba(0,0,0,0.4);
+  transition: transform 0.5s ease, box-shadow 0.5s ease;
+}
+
+.section-zigzag video:hover {
+  transform: scale(1.03);
+  box-shadow: 0 0 40px rgba(255,255,255,0.15);
+}
+
 .section-zigzag .text-box {
   width: 50%;
   max-width: 650px;
@@ -492,16 +507,28 @@ footer {
 /* === RESPONSIVE === */
 @media (max-width: 900px) {
   .section-zigzag {
-    flex-direction: column !important; /* forza column anche per row-reverse */
+    flex-direction: column !important;
     text-align: center;
     gap: 2rem;
+    padding: 3rem 2%;
   }
+  
   .section-zigzag img,
-  .section-zigzag video,
   .section-zigzag .text-box {
     width: 100%;
   }
+  
+  /* Video mobile: più grandi e senza taglio */
+  .section-zigzag video {
+    width: 100%;
+    max-width: 100%;
+    object-fit: contain; /* mostra tutto senza tagliare */
+    border-radius: 12px;
+    background: #000;
+    min-height: 280px; /* altezza minima più grande */
+  }
 }
+
 /* FORZA HERO FULL WIDTH - FIX FINALE */
 #hero {
   max-width: none !important;
