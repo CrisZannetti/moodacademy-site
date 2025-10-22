@@ -492,11 +492,12 @@ footer {
 /* === RESPONSIVE === */
 @media (max-width: 900px) {
   .section-zigzag {
-    flex-direction: column;
+    flex-direction: column !important; /* forza column anche per row-reverse */
     text-align: center;
     gap: 2rem;
   }
-  .section-zigzag img, 
+  .section-zigzag img,
+  .section-zigzag video,
   .section-zigzag .text-box {
     width: 100%;
   }
