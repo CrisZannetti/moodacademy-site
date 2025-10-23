@@ -472,10 +472,12 @@ footer {
   box-shadow: 0 0 40px rgba(255,255,255,0.15);
 }
 
-/* Stili video identici alle immagini */
+/* Video quadrati: dimensioni diverse dalle immagini */
 .section-zigzag video {
-  width: 45%;
+  width: 50%; /* più largo del 45% delle immagini */
+  max-width: 500px; /* limite massimo */
   height: auto;
+  aspect-ratio: 1 / 1; /* forza proporzioni quadrate */
   border-radius: 20px;
   object-fit: cover;
   box-shadow: 0 0 30px rgba(0,0,0,0.4);
@@ -518,18 +520,15 @@ footer {
     width: 100%;
   }
   
-  /* Video mobile: più grandi e senza taglio */
+  /* Video quadrati mobile: occupano più spazio */
   .section-zigzag video {
-    width: 100%;
-    max-width: 100%;
-    object-fit: contain; /* mostra tutto senza tagliare */
-    border-radius: 12px;
+    width: 95%; /* un po' di margine laterale */
+    max-width: 500px; /* limite per schermi grandi */
+    aspect-ratio: 1 / 1; /* mantiene proporzioni quadrate */
+    object-fit: cover; /* mostra tutto il video */
+    border-radius: 16px;
     background: #000;
-    min-height: 280px; /* altezza minima più grande */
+    margin: 0 auto; /* centra il video */
+    box-shadow: 0 0 40px rgba(0,0,0,0.5);
   }
-}
-
-/* FORZA HERO FULL WIDTH - FIX FINALE */
-#hero {
-  max-width: none !important;
 }
