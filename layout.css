@@ -511,8 +511,8 @@ footer {
   .section-zigzag {
     flex-direction: column !important;
     text-align: center;
-    gap: 2rem;
-    padding: 3rem 2%;
+    gap: 1rem; /* ancora meno spazio */
+    padding: 2rem 2%;
   }
   
   .section-zigzag img,
@@ -520,15 +520,16 @@ footer {
     width: 100%;
   }
   
-  /* Video quadrati mobile: occupano più spazio */
+  /* VIDEO MOBILE: MASSIMA GRANDEZZA */
   .section-zigzag video {
-    width: 100%; /* un po' di margine laterale */
-    max-width: 700px; /* limite per schermi grandi */
-    aspect-ratio: 1 / 1; /* mantiene proporzioni quadrate */
-    object-fit: cover; /* mostra tutto il video */
-    border-radius: 16px;
+    width: 98%; /* quasi full-width */
+    max-width: 500px;
+    height: auto;
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+    border-radius: 12px;
     background: #000;
-    margin: 0 auto; /* centra il video */
+    margin: 0 auto 0.5rem; /* pochissimo spazio sotto */
     box-shadow: 0 0 40px rgba(0,0,0,0.5);
   }
 }
