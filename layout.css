@@ -521,15 +521,17 @@ footer {
   }
   
   /* VIDEO MOBILE: MASSIMA GRANDEZZA */
+/* === FIX VIDEO MOBILE (FORZA STILI) === */
+@media (max-width: 900px) {
   .section-zigzag video {
-    width: 98%; /* quasi full-width */
-    max-width: 500px;
-    height: auto;
-    aspect-ratio: 1 / 1;
-    object-fit: cover;
-    border-radius: 12px;
-    background: #000;
-    margin: 0 auto 0.5rem; /* pochissimo spazio sotto */
-    box-shadow: 0 0 40px rgba(0,0,0,0.5);
+    width: 95% !important;
+    max-width: 500px !important;
+    aspect-ratio: 1/1 !important;
+    object-fit: cover !important;
+    border-radius: 16px !important;
+    box-shadow: 0 0 40px rgba(0,0,0,0.5) !important;
+    margin: 0 auto !important;
+    display: block !important;
+    height: auto !important;
   }
 }
