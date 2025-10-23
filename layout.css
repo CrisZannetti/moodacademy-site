@@ -522,8 +522,8 @@ footer {
   
   /* Video quadrati mobile: occupano più spazio */
   .section-zigzag video {
-    width: 95%; /* un po' di margine laterale */
-    max-width: 500px; /* limite per schermi grandi */
+    width: 100%; /* un po' di margine laterale */
+    max-width: 700px; /* limite per schermi grandi */
     aspect-ratio: 1 / 1; /* mantiene proporzioni quadrate */
     object-fit: cover; /* mostra tutto il video */
     border-radius: 16px;
